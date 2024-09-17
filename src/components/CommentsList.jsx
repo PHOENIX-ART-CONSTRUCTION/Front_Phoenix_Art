@@ -1,88 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 
-// Fonction pour générer l'URL de l'avatar en fonction du nom
-const generateAvatarURL = (name) => {
-  return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}`;
-};
-
-const CommentsList = () => {
+const CommentsList = ({ comments }) => {
   const [showForm, setShowForm] = useState(false); // Affichage du formulaire
-  const [newComment, setNewComment] = useState({ nom: '', message: '' }); // Nouveaux commentaires
-  const [commentList, setCommentList] = useState([]); // Liste des commentaires
-  const [loading, setLoading] = useState(true); // Indicateur de chargement
-  const [error, setError] = useState(null); // Gestion des erreurs
+  const [newComment, setNewComment] = useState({ name: '', message: '' }); // Nouveaux commentaires
+  const [commentList, setCommentList] = useState(comments); // Liste des commentaires
 
-  const apiURL = 'http://192.168.1.108:8000/api/v1/feedback/'; // URL du backend
-
-  // Fonction pour récupérer les commentaires
-  const fetchComments = async () => {
-    try {
-      const response = await axios.get(apiURL);
-      setCommentList(response.data.map(comment => ({
-        ...comment,
-        avatar: generateAvatarURL(comment.nom) // Génération de l'URL de l'avatar
-      }))); // Mettre à jour la liste des commentaires avec les avatars
-      setLoading(false); // Fin du chargement
-    } catch (err) {
-      setError('Erreur lors du chargement des commentaires');
-      setLoading(false);
-    }
-  };
-
-  // Utilisation d'useEffect pour charger les commentaires au montage du composant
-  useEffect(() => {
-    fetchComments();
-  }, []);
-
-  // Fonction pour ajouter un nouveau commentaire
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Vérifie que le nom et le message ne sont pas vides
-    if (newComment.nom && newComment.message) {
-      try {
-        // Envoyer la requête POST au backend pour ajouter un commentaire
-        const response = await axios.post(apiURL, {
-          nom: newComment.nom,
-          message: newComment.message
-        });
-
-        // Ajouter le nouveau commentaire à la liste locale avec l'avatar généré
-        setCommentList([
-          ...commentList,
-          {
-            ...response.data,
-            avatar: generateAvatarURL(response.data.nom) // Génération de l'URL de l'avatar
-          }
-        ]);
-
-        // Réinitialiser le formulaire
-        setNewComment({ nom: '', message: '' });
-
-        // Fermer le formulaire
-        setShowForm(false);
-      } catch (err) {
-        setError('Erreur lors de l\'ajout du commentaire');
-      }
-    }
-  };
-
-  // Fonction pour basculer l'affichage du formulaire  
+  // Fonction pour basculer l'affichage du formulaire
   const handleAddCommentClick = () => {
     setShowForm(!showForm);
   };
 
+  // Fonction pour gérer l'envoi du formulaire
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Vérifie que le nom et le message ne sont pas vides
+    if (newComment.name && newComment.message) {
+      // Ajouter un nouvel avatar avec un service de génération d'avatar
+      const avatar = `https://ui-avatars.com/api/?name=${newComment.name.replace(' ', '+')}`;
+      
+      // Ajouter le nouveau commentaire à la liste
+      setCommentList([...commentList, { ...newComment, avatar }]);
+
+      // Réinitialiser le formulaire
+      setNewComment({ name: '', message: '' });
+      
+      // Fermer le formulaire
+      setShowForm(false);
+    }
+  };
+
   return (
-    <div className="comments-list container mx-auto my-10 p-12 bg-gray-100 rounded-lg shadow-lg relative">
+    <div className="comments-list container mx-auto my-10 p-6 bg-gray-100 rounded-lg shadow-lg relative">
       <h2 className="text-4xl font-bold text-center mb-10">Commentaires</h2>
 
-      {/* Gestion du chargement et des erreurs */}
-      {loading ? (
-        <p>Chargement des commentaires...</p>
-      ) : error ? (
-        <p className="text-red-500">{error}</p>
-      ) : commentList.length > 0 ? (
+      {/* Affichage des commentaires */}
+      {commentList.length > 0 ? (
         <div className="flex flex-wrap -mx-4">
           {commentList.map((comment, index) => (
             <div key={index} className="w-full sm:w-1/2 lg:w-1/3 p-4">
@@ -94,9 +47,7 @@ const CommentsList = () => {
                   className="w-12 h-12 rounded-full mr-4 object-cover"
                 />
                 <div>
-                  {/* Affichage du nom */}
-                  <h3 className="text-xl font-semibold">{comment.nom}</h3>
-                  {/* Affichage du message */}
+                  <h3 className="text-xl font-semibold">{comment.name}</h3>
                   <p>{comment.message}</p>
                 </div>
               </div>
@@ -132,16 +83,16 @@ const CommentsList = () => {
             >
               <form onSubmit={handleSubmit}>
                 <div className="mb-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="nom">
+                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
                     Nom
                   </label>
                   <input
                     type="text"
-                    id="nom"
+                    id="name"
                     className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Entrez votre nom"
-                    value={newComment.nom}
-                    onChange={(e) => setNewComment({ ...newComment, nom: e.target.value })}
+                    value={newComment.name}
+                    onChange={(e) => setNewComment({ ...newComment, name: e.target.value })}
                   />
                 </div>
                 <div className="mb-4">
