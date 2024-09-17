@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowCircleRight, CirclesFour } from '@phosphor-icons/react';
 import SmoothScroll from 'smooth-scroll';
-import Logo from '../assets/Logo.png';
+import Logo from '../assets/logo.png';
 
 // Initialisation de smooth scroll avec des options
 export const scroll = new SmoothScroll('a[href*="#"]', {
