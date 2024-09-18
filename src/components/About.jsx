@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { FaChevronUp } from 'react-icons/fa';
-import { MoreInfoButton } from './molecules/MoreInfoButton';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const About = ({ aboutData, whyChooseUsData }) => {
@@ -73,24 +72,24 @@ export const About = ({ aboutData, whyChooseUsData }) => {
             transition={{ duration: 0.4 }}
             className="relative mt-12 mb-12 p-8 bg-[rgba(155,185,230,0.16)] text-black rounded-lg shadow-2xl border mx-12"
           >
-            <h3 className="text-xl md:text-5xl font-bold text-black mb-6 text-center">
+            <h3 className="text-xl md:text-5xl font-bold text-black uppercase mb-6 text-center">
               {whyChooseUsData.title}
             </h3>
-            <ul className="list-disc list-inside space-y-4 text-left">
+            <ol className="list-decimal list-inside space-y-4 text-left  pl-6">
               {whyChooseUsData.details &&
-                whyChooseUsData.details.map((detail, index) => (
+                whyChooseUsData.details.map((item, index) => (
                   <motion.li
                     key={index}
                     initial={{ opacity: 0, scale: 0.3, x: -50 }}
                     animate={{ opacity: 1, scale: 1, x: 0 }}
                     exit={{ opacity: 0, scale: 0.3, x: -50 }} // Animation de fermeture
                     transition={{ delay: 0.1 * index }}
-                    className="text-lg font-bold"
-                  >
-                    {detail}
+                    className="text-lg "
+                  >{item.title }:
+                    <span className="block text-lg "> {item.description}</span>
                   </motion.li>
                 ))}
-            </ul>
+            </ol>
 
             <motion.button
               onClick={handleCollapseClick}
