@@ -14,7 +14,7 @@ export const Header = ({ data }) => {
 
       {/* Vidéo de fond */}
       <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover">
-        <source src="./src/assets/video.mp4" type="video/mp4" />
+        <source src="./assets/video.mp4" type="video/mp4" />
         Votre navigateur ne supporte pas la balise vidéo.
       </video>
 

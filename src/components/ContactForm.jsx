@@ -98,7 +98,7 @@ const ContactForm = () => {
           transition={{ duration: 0.5 }}
           className="bg-cover bg-center p-6 flex-1 text-white text-center"
           style={{
-            backgroundImage: 'url("./src/assets/headerBg.jpg")',
+            backgroundImage: 'url("/assets/headerBg.jpg")',
             backgroundBlendMode: 'overlay',
             backgroundColor: 'rgba(0, 0, 0, 0.5)', // Rend le texte plus lisible
           }}

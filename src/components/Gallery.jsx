@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import intro_bg from '../assets/intro_bg.jpg';
-import headerBg from '../assets/headerBg.jpg';
-import sary from '../assets/sary.jpg';
-import sary1 from '../assets/sary1.jpg';
-import sary2 from '../assets/sary2.jpg';
-import sary3 from '../assets/sary3.jpg';
-import sary4 from '../assets/sary4.jpg';
-import Head from '../assets/Head.jpg';
+import intro_bg from '/assets/intro_bg.jpg';
+import headerBg from '/assets/headerBg.jpg';
+import sary from '/assets/sary.jpg';
+import sary1 from '/assets/sary1.jpg';
+import sary2 from '/assets/sary2.jpg';
+import sary3 from '/assets/sary3.jpg';
+import sary4 from '/assets/sary4.jpg';
+import Head from '/assets/Head.jpg';
 
 const imageMap = {
   'intro_bg': intro_bg,
