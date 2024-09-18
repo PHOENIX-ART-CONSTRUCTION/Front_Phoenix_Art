@@ -23,10 +23,10 @@ export const Header = ({ data }) => {
 
       {/* Contenu du header */}
       <div className="relative z-10 p-4 text-white">
-        <h1 className="text-4xl md:text-6xl mb-4">
+        <h1 className="text-4xl md:text-6xl mb-4 uppercase font-bold">
         {data.title}
         </h1>
-        <p className="text-lg md:text-2xl mb-8">{data.subtitle}</p>
+        <p className="text-lg md:text-2xl mb-8 font-bold">{data.subtitle}</p>
         <a
           href="#services"
           className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-3 px-8 rounded-full text-lg font-semibold shadow-lg transform transition duration-500 ease-in-out hover:scale-105 hover:bg-gradient-to-r hover:from-blue-600 hover:via-gray-500 hover:to-indigo-600 hover:shadow-xl"

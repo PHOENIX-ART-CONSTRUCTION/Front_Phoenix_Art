@@ -25,7 +25,7 @@ const ContactForm = () => {
 
   return (
     <div className="w-full my-10 p-0" id="contact">
-      <h2 className="text-4xl font-bold text-center mb-10">Contactez-nous</h2>
+      <h2 className="text-4xl uppercase font-bold text-center mb-10">Contactez-nous</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 p-2 gap-0">
         {/* Première colonne : Formulaire */}
         <motion.div
