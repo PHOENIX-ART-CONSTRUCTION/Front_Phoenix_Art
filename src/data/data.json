@@ -12,42 +12,42 @@
         "id": 1,
         "title": "Qualité Supérieure",
         "description": "Nous offrons des services de construction de haute qualité avec les meilleurs matériaux.",
-        "image": "./src/assets/headerBg.jpg", 
+        "image": "./assets/headerBg.jpg", 
         "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
       },
       {
         "id": 2,
         "title": "Durabilité",
         "description": "Nos structures sont conçues pour durer et résister aux conditions les plus difficiles.",
-        "image": "./src/assets/headerBg.jpg",
+        "image": "./assets/headerBg.jpg",
         "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
       },
       {
         "id": 3,
         "title": "Innovation",
         "description": "Nous utilisons des technologies de pointe pour fournir des solutions innovantes.",
-        "image": "./src/assets/headerBg.jpg", 
+        "image": "./assets/headerBg.jpg", 
         "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
       },
       {
         "id": 4,
         "title": "Service Client Exceptionnel",
         "description": "Nous nous engageons à offrir un service client de première classe à chaque étape.",
-        "image": "./src/assets/headerBg.jpg", 
+        "image": "./assets/headerBg.jpg", 
         "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
       },
       {
         "id": 5,
         "title": "Respect des Délais",
         "description": "Nous nous engageons à respecter les délais et à livrer les projets à temps.",
-        "image": "./src/assets/headerBg.jpg",
+        "image": "./assets/headerBg.jpg",
         "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
       },
       {
         "id": 6,
         "title": "Écologie",
         "description": "Nous intégrons des pratiques respectueuses de l'environnement dans tous nos projets.",
-        "image": "./src/assets/headerBg.jpg",
+        "image": "./assets/headerBg.jpg",
         "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
       }
     ]
@@ -59,38 +59,52 @@
       "Nous intervenons dans divers projets, allant de la rénovation résidentielle aux constructions commerciales, en passant par des travaux d'aménagement intérieur et extérieur. Chez Phoenix Art Construction, nous valorisons l'artisanat, la durabilité et l'excellence, en nous assurant que chaque projet est réalisé avec soin et précision.",
       "Notre mission est de redonner vie à vos espaces tout en respectant les délais et le budget, pour garantir une satisfaction totale. Que vous ayez un projet de rénovation ambitieux ou des travaux de construction de base, nous sommes là pour vous accompagner à chaque étape, de la conception à la réalisation."
     ],
-    "image": "./src/assets/headerBg.jpg",
+    "image": "./assets/headerBg.jpg",
     "buttonText": "En savoir plus"
   },
   "WhyChooseUs": {
     "title": "Pourquoi nous choisir ?",
     "details": [
-      "Expertise et Expérience : Notre équipe est composée de professionnels qualifiés avec des années d'expérience dans le secteur de la construction et de la rénovation. Nous comprenons les besoins de nos clients et nous adaptons à chaque projet pour offrir des solutions sur mesure.",
-      "Qualité et Innovation : Chez Phoenix Art Construction, nous utilisons des matériaux de première qualité et les techniques les plus récentes pour garantir des résultats durables et esthétiquement agréables. Nous sommes constamment à la recherche de nouvelles idées pour innover et améliorer nos services.",
-      "Engagement Client : La satisfaction de nos clients est notre priorité. Nous travaillons en étroite collaboration avec vous, écoutant attentivement vos besoins et vos attentes, pour nous assurer que le résultat final dépasse vos espérances.",
-      "Respect des délais et du budget : Nous savons que le temps et l'argent sont précieux. C'est pourquoi nous nous engageons à respecter les délais convenus et à fournir des solutions qui s'adaptent à votre budget, sans compromis sur la qualité.",
-      "Service Personnalisé : Chaque projet est unique, et nous le traitons comme tel. Nous offrons un service personnalisé et une attention méticuleuse aux détails pour garantir que votre vision soit parfaitement réalisée.",
-      "Choisissez Phoenix Art Construction pour des résultats qui non seulement répondent à vos attentes, mais les surpassent. Faites confiance à notre expertise pour transformer vos espaces et donner vie à vos idées."
+      {
+        "title": "Expertise et Expérience",
+        "description": "Notre équipe est composée de professionnels qualifiés avec des années d'expérience dans le secteur de la construction et de la rénovation. Nous comprenons les besoins de nos clients et nous adaptons à chaque projet pour offrir des solutions sur mesure."
+      },
+      {
+        "title": "Qualité et Innovation",
+        "description": "Chez Phoenix Art Construction, nous utilisons des matériaux de première qualité et les techniques les plus récentes pour garantir des résultats durables et esthétiquement agréables. Nous sommes constamment à la recherche de nouvelles idées pour innover et améliorer nos services."
+      },
+      {
+        "title": "Engagement Client",
+        "description": "La satisfaction de nos clients est notre priorité. Nous travaillons en étroite collaboration avec vous, écoutant attentivement vos besoins et vos attentes, pour nous assurer que le résultat final dépasse vos espérances."
+      },
+      {
+        "title": "Respect des délais et du budget",
+        "description": "Nous savons que le temps et l'argent sont précieux. C'est pourquoi nous nous engageons à respecter les délais convenus et à fournir des solutions qui s'adaptent à votre budget, sans compromis sur la qualité."
+      },
+      {
+        "title": "Service Personnalisé",
+        "description": "Chaque projet est unique, et nous le traitons comme tel. Nous offrons un service personnalisé et une attention méticuleuse aux détails pour garantir que votre vision soit parfaitement réalisée."
+      }
     ]
   },
   "Services": [
     {
-      "image": "./src/assets/services/Services_Packs.jpg", 
+      "image": "./assets/services/Services_Packs.jpg", 
       "name": "Service 1",
       "text": "Description courte du service 1."
     },
     {
-      "image": "./src/assets/services/Pack_Etude.jpg",  
+      "image": "./assets/services/Pack_Etude.jpg",  
       "name": "Service 2",
       "text": "Description courte du service 2."
     },
     {
-      "image": "./src/assets/services/Pack_construction.jpg", 
+      "image": "./assets/services/Pack_construction.jpg", 
       "name": "Service 3",
       "text": "Description courte du service 3."
     },
     {
-      "image": "./src/assets/services/Pack_ingenieurie.jpg",  
+      "image": "./assets/services/Pack_ingenieurie.jpg",  
       "name": "Service 4",
       "text": "Description courte du service 4."
     }
