@@ -1,5 +1,3 @@
-// src/components/Navigation.jsx
-
 import React, { useState, useEffect } from 'react';
 import { ArrowCircleRight, CirclesFour } from '@phosphor-icons/react';
 import SmoothScroll from 'smooth-scroll';
@@ -10,22 +8,22 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 800,
   speedAsDuration: true,
 });
-
+// Déclaration de deux états locaux : 'open' pour gérer l'ouverture/fermeture du menu mobile et 'navBarColor' pour changer la couleur de la navbar au scroll
 export const NavBar = () => {
   // Déclaration de deux états locaux : 'open' pour gérer l'ouverture/fermeture du menu mobile et 'navBarColor' pour changer la couleur de la navbar au scroll
   const [open, setOpen] = useState(false);
   const [navBarColor, setNavBarColor] = useState(false);
 
-  // Fonction qui inverse l'état 'open' à chaque clic (ouvre/ferme le menu)
+   // Fonction qui inverse l'état 'open' à chaque clic (ouvre/ferme le menu)
   const handleToggle = () => {
     setOpen(!open);
   };
 
   const handleLinkClick = () => {
-    setOpen(false); // Ferme le menu mobile après un clic sur un lien
+    setOpen(false);// Ferme le menu mobile après un clic sur un lien
   };
 
-  // Fonction qui surveille le scroll et modifie 'navBarColor' en fonction de la position de scroll (si on dépasse 10px de scroll, la couleur de la navbar change)
+   // Fonction qui surveille le scroll et modifie 'navBarColor' en fonction de la position de scroll (si on dépasse 10px de scroll, la couleur de la navbar change)
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setNavBarColor(true) : setNavBarColor(false);
   };
@@ -39,9 +37,9 @@ export const NavBar = () => {
   }, []);
 
   return (
-    <header className="w-full h-18 fixed top-0 left-0 z-50 bg-white shadow-lg transition duration-500 ease-in-out hover:shadow-xl">
+    <header className="w-full h-15 fixed top-0 left-0 z-50 bg-white shadow-lg transition duration-500 ease-in-out hover:shadow-xl">
       <nav
-        className={`w-full md:h-20 h-14 px-6 lg:px-20 md:px-12 flex justify-between items-center transition-all duration-500 ease-in-out`}
+        className={`w-full md:h-20 h-14 px-3 lg:px-5 md:px-2 flex justify-between items-center transition-all duration-500 ease-in-out`} // Ici la modification
       >
         <a href="/" className="md:h-20 h-12">
           <img src={Logo} alt="Logo" className="h-full w-auto" />
