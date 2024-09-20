@@ -43,7 +43,7 @@ export const Services = ({ data }) => {
   return (
     <>
       {/* Titre en dehors de la section */}
-      <h2 className="text-5xl font-bold text-center mt-10 pt-10 uppercase bg-gray-200">
+      <h2 className="text-4xl font-bold text-center mt-10 pt-10 uppercase bg-gray-200">
         Nos Services
       </h2>
       
