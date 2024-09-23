@@ -13,42 +13,64 @@
         "title": "Qualité Supérieure",
         "description": "Nous offrons des services de construction de haute qualité avec les meilleurs matériaux.",
         "image": "./assets/features/sup_qual.jpg", 
-        "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
-      },
+        "fullDescription": [
+          "Chez Phoenix Art Construction, la qualité est notre priorité absolue.",
+          "Nous utilisons uniquement des matériaux de premier choix, rigoureusement sélectionnés et testés pour leur durabilité et leur fiabilité. ",
+          "Chaque étape de notre processus de construction est minutieusement planifiée et exécutée pour garantir que nos projets répondent aux normes les plus élevées.",
+          "Nous croyons fermement que la qualité se reflète dans la satisfaction de nos clients et dans la longévité de nos structures."
+          ] },
       {
         "id": 2,
         "title": "Durabilité",
         "description": "Nos structures sont conçues pour durer et résister aux conditions les plus difficiles.",
         "image": "./assets/features/durabilité.jpg",
-        "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
-      },
+        "fullDescription": [
+          " La durabilité est essentielle dans chaque projet que nous entreprenons. Nous concevons des structures capables de résister aux rigueurs du temps et des intempéries.",
+          "Grâce à l'utilisation de matériaux robustes et à des techniques de construction avancées, nous assurons que nos bâtiments non seulement tiennent le coup face aux défis environnementaux, ",
+          " mais restent également fonctionnels et esthétiques pendant de nombreuses années. Notre engagement envers la durabilité se traduit par des solutions qui protègent votre investissement à long terme."
+          ] },
       {
         "id": 3,
         "title": "Innovation",
         "description": "Nous utilisons des technologies de pointe pour fournir des solutions innovantes.",
         "image": "./assets/features/innovation.jpeg", 
-        "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
-      },
+        "fullDescription":  [
+          " L'innovation est au cœur de notre philosophie. Nous intégrons les dernières technologies et méthodes de construction pour offrir des solutions novatrices qui répondent aux besoins contemporains.",
+          "Que ce soit par l'utilisation de matériaux écologiques, de logiciels de conception avancés, ou de techniques de construction modulaires, nous nous efforçons de rester à la pointe de l'industrie. ",
+          "Cela nous permet non seulement d'améliorer l'efficacité de nos projets, mais aussi d'optimiser la satisfaction client en offrant des résultats qui dépassent leurs attentes."
+          ] },
       {
         "id": 4,
         "title": "Service Client Exceptionnel",
         "description": "Nous nous engageons à offrir un service client de première classe à chaque étape.",
         "image": "./assets/features/Service_Client.jpg", 
-        "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
-      },
+        "fullDescription":  [
+          " Chez Phoenix Art Construction, nous croyons que l'expérience client commence dès le premier contact et se poursuit bien au-delà de la livraison du projet.",
+          "Notre équipe est dédiée à fournir un service client exceptionnel, en étant à l'écoute de vos besoins et en répondant à toutes vos questions. ",
+          "Nous vous accompagnons à chaque étape du processus de construction, garantissant transparence, communication et satisfaction.",
+          "Notre objectif est de créer une relation de confiance qui vous permettra de vous sentir en sécurité dans votre choix de nous confier votre projet."
+          ] },
       {
         "id": 5,
         "title": "Respect des Délais",
         "description": "Nous nous engageons à respecter les délais et à livrer les projets à temps.",
         "image": "./assets/features/deadline.jpg",
-        "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
-      },
+        "fullDescription":  [
+          " La gestion du temps est cruciale dans le domaine de la construction. Nous nous engageons fermement à respecter les délais convenus et à livrer nos projets dans les temps impartis. ",
+          "Grâce à une planification rigoureuse et à une coordination efficace de nos équipes, nous minimisons les retards et maximisons l'efficacité.",
+          "Nos clients peuvent avoir l'esprit tranquille en sachant que nous tenons nos promesses et que leurs projets seront achevés dans les délais convenus."
+          ] },
       {
         "id": 6,
         "title": "Écologie",
         "description": "Nous intégrons des pratiques respectueuses de l'environnement dans tous nos projets.",
         "image": "./assets/features/ecologie.jpg",
-        "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
+        "fullDescription": [
+          "L'écologie est au cœur de notre approche en matière de construction.",
+          "Nous sommes conscients de l'impact de nos activités sur l'environnement, et c'est pourquoi nous adoptons des pratiques durables dans chaque projet.",
+          "De l'utilisation de matériaux recyclés à l'optimisation de la consommation d'énergie, nous cherchons à minimiser notre empreinte écologique.",
+          "Notre objectif est de construire non seulement des structures de qualité, mais aussi de préserver notre planète pour les générations futures."
+        ]
       }
     ]
   },
