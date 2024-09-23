@@ -75,7 +75,7 @@ export const About = ({ aboutData, whyChooseUsData }) => {
             <h3 className="text-xl md:text-5xl font-bold text-black uppercase mb-6 text-center">
               {whyChooseUsData.title}
             </h3>
-            <ol className="list-decimal list-inside space-y-4 text-left  pl-6">
+            <ol className="list-decimal list-inside space-y-4 text-justify  pl-6">
               {whyChooseUsData.details &&
                 whyChooseUsData.details.map((item, index) => (
                   <motion.li
