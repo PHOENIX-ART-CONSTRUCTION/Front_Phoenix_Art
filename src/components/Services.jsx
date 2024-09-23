@@ -77,13 +77,13 @@ export const Services = ({ data }) => {
           {/* Boutons pour naviguer */}
           <button
             onClick={handlePrev}
-            className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-lg z-10"
+            className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-lg z-5"
           >
             <FaChevronLeft />
           </button>
           <button
             onClick={handleNext}
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-lg z-10"
+            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-lg z-5"
           >
             <FaChevronRight />
           </button>

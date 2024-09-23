@@ -19,17 +19,16 @@ const cardVariants = {
     opacity: 1,
     scale: 1,
     position: 'fixed',
-    top: '50%',
+    top: '55%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: '60vw',
-    height: '70vh',
+    height: '80vh',
     zIndex: 50,
     overflow: 'auto',
     backgroundColor: 'rgb(255, 255, 255)',
-    // Assure-toi que ces styles ne sont pas écrasés par des classes CSS
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-    borderRadius: '8px', // Assure une bordure arrondie si nécessaire
+    borderRadius: '8px',
   },
 };
 
@@ -53,23 +52,24 @@ const FeatureCards = ({ feature, isExpanded, onCardClick }) => {
           initial="hidden"
           animate="visible"
           exit="hidden"
-          transition={{ duration: 0.3, ease: 'easeInOut' }} // Utilisation d'une courbe d'accélération plus douce
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
         />
       )}
       <motion.div
         className={`relative p-6 bg-white shadow-lg rounded-lg cursor-pointer ${isExpanded ? 'expanded' : ''}`}
-        style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }} // Ajustement de l'ombre portée
+        style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}
         onClick={handleCardClick}
         variants={cardVariants}
         initial="hidden"
         animate={isExpanded ? 'expanded' : 'visible'}
         exit="hidden"
-        transition={{ type: 'spring', stiffness: 300, damping: 30, mass: 1, duration: 0.5 }} // Ajout de la durée pour une animation plus fluide
+        transition={{ type: 'spring', stiffness: 300, damping: 30, mass: 1, duration: 0.5 }}
       >
+        {/* Assurez-vous que toutes les images ont la même taille */}
         <img
           src={feature.image}
           alt={feature.title}
-          className={`w-full h-[50%] object-cover mb-4 rounded-md ${isExpanded ? 'h-90' : ''}`}
+          className={`w-full h-48 object-cover mb-4 rounded-md ${isExpanded ? 'h-48' : ''}`} // Taille fixe en mode normal et agrandi
         />
         <h3 className={`text-xl font-semibold mb-2 ${isExpanded ? 'text-3xl' : ''}`}>
           {feature.title}

@@ -16,7 +16,7 @@ export const Features = ({ data }) => {
   };
 
   return (
-    <section id="features" className="relative py-20 bg-gray-100">
+    <section id="caractéristiques" className="relative py-20 bg-gray-100">
       {/* Couche de couleur semi-transparente */}
       <div className="absolute inset-0 bg-white opacity-80"></div>
       

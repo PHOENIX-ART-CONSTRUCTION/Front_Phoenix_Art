@@ -75,7 +75,7 @@ export const Header = ({ data }) => {
           variants={contentVariants}
         >
           <motion.p
-            className="text-lg md:text-2xl mb-8 font-bold"
+            className="text-lg md:text-2xl mb-8 uppercase font-bold"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.7 }}

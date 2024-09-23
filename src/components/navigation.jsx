@@ -38,15 +38,13 @@ export const NavBar = () => {
 
   return (
     <header className="w-full h-15 fixed top-0 left-0 z-50 bg-white shadow-lg transition duration-500 ease-in-out hover:shadow-xl">
-      <nav
-        className={`w-full md:h-20 h-14 px-3 lg:px-5 md:px-2 flex justify-between items-center transition-all duration-500 ease-in-out`} // Ici la modification
-      >
+      <nav className={`w-full md:h-20 h-14 px-3 lg:px-5 md:px-2 flex justify-between items-center transition-all duration-500 ease-in-out`}>
         <a href="/" className="md:h-20 h-12">
           <img src={Logo} alt="Logo" className="h-full w-auto" />
         </a>
         <div className="lg:flex hidden items-center gap-20">
           <ul className="flex items-center justify-center gap-8 text-base font-semibold tracking-wider">
-            {['features', 'about', 'services', 'gallery', 'team', 'contact'].map((section) => (
+            {['caractéristiques', 'à propos', 'services', 'galerie', 'équipe', 'contact'].map((section) => (
               <li key={section}>
                 <a
                   href={`#${section}`}
@@ -65,7 +63,7 @@ export const NavBar = () => {
         </div>
       </nav>
 
-      {/* Mobile Nav */}
+      {/* Menu Mobile */}
       <nav
         className={`flex justify-end lg:hidden h-screen w-full bg-gray-950/90 fixed top-0 ${
           open ? 'right-0' : '-right-[120vw]'
@@ -86,12 +84,12 @@ export const NavBar = () => {
               </div>
             </div>
             <ul className="flex flex-col gap-3 pl-2 text-lg font-semibold tracking-wider">
-              {['features', 'about', 'services', 'gallery', 'team', 'contact'].map((section) => (
+              {['caractéristiques', 'à propos', 'services', 'galerie', 'équipe', 'contact'].map((section) => (
                 <li key={section}>
                   <a
                     href={`#${section}`}
                     className="page-scroll uppercase pb-2 hover:text-gray-500 transition duration-300"
-                    onClick={handleLinkClick} // Ferme le menu mobile après clic
+                    onClick={handleLinkClick}
                   >
                     {section.charAt(0).toUpperCase() + section.slice(1)}
                   </a>

@@ -18,7 +18,7 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Ajoutez ici la logique pour envoyer les données
+    // Logique pour envoyer les données
     console.log('Form submitted:', formData);
     setFormData({ name: '', email: '', message: '' });
   };
@@ -26,15 +26,15 @@ const ContactForm = () => {
   return (
     <div className="w-full my-10 p-0" id="contact">
       <h2 className="text-4xl uppercase font-bold text-center mb-10">Contactez-nous</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 p-2 gap-0">
+      <div className="flex flex-col md:flex-row p-0 items-stretch w-full">
         {/* Première colonne : Formulaire */}
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-white w-full p-8 shadow-[0_8px_20px_-5px_rgba(0,0,0,0.4),0_2px_10px_rgba(0,0,0,0.1)]"
+          className="bg-white p-8 shadow-[0_8px_20px_-5px_rgba(0,0,0,0.4),0_2px_10px_rgba(0,0,0,0.1)] flex-1 h-full"
         >
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6 h-full">
             <div>
               <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
                 Nom
@@ -74,9 +74,10 @@ const ContactForm = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"  // Désactiver la redimension
                 placeholder="Votre message"
                 rows="5"
+                style={{ height: '117px' }} 
                 required
               ></textarea>
             </div>
@@ -91,44 +92,18 @@ const ContactForm = () => {
           </form>
         </motion.div>
 
-        {/* Deuxième colonne : Coordonnées de l'entreprise avec image de fond */}
+        {/* Deuxième colonne : Image */}
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-cover bg-center p-6 flex-1 text-white text-center"
-          style={{
-            backgroundImage: 'url("/assets/headerBg.jpg")',
-            backgroundBlendMode: 'overlay',
-            backgroundColor: 'rgba(0, 0, 0, 0.5)', // Rend le texte plus lisible
-          }}
+          className="flex-1 flex justify-center items-center h-full"
         >
-           <div className=" p-6  text-white">
-          <h3 className="text-2xl font-bold mb-4 text-center">Coordonnées de l'entreprise</h3>
-          <p className="mb-4">
-            <span className="font-bold">Nom de l'entreprise :</span> Phoenix Art Construction
-          </p>
-          <p className="mb-4">
-            <span className="font-bold">Adresse :</span> IJN 5282 Ambodivona Itaosy Hopitaly, Antananarivo 101
-          </p>
-          <p className="mb-4">
-            <span className="font-bold">Téléphone :</span> +261 1 23 45 67 89
-          </p>
-          <p className="mb-4">
-            <span className="font-bold">Email :</span> contact@phoenixart.MG
-          </p>
-
-          <h3 className="text-2xl font-bold mb-4 mt-8">Coordonnées du gérant</h3>
-          <p className="mb-4">
-            <span className="font-bold">Nom du gérant :</span> ANDRIAMANJATO Heritiana
-          </p>
-          <p className="mb-4">
-            <span className="font-bold">Téléphone :</span> +261 6 12 34 56 78
-          </p>
-          <p>
-            <span className="font-bold">Email :</span> herian@phoenixart.fr
-          </p>
-          </div>
+          <img
+            src="/assets/Contact.jpg"
+            alt="Contact"
+            className="w-full h-[70%] object-cover shadow-lg"
+             />
         </motion.div>
       </div>
     </div>

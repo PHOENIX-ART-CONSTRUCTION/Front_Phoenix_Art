@@ -32,7 +32,7 @@ const CommentsList = ({ comments }) => {
 
   return (
     <div className="comments-list container mx-auto my-10 p-6 bg-gray-100 rounded-lg shadow-lg relative">
-      <h2 className="text-4xl uppercase font-bold text-center mb-10">Commentaires</h2>
+      <h2 className="text-4xl uppercase font-bold text-center mb-10">Avis & Commentaires</h2>
 
       {/* Affichage des commentaires */}
       {commentList.length > 0 ? (
@@ -76,7 +76,7 @@ const CommentsList = ({ comments }) => {
             className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50"
             onClick={handleAddCommentClick} // Clic sur l'overlay pour fermer le formulaire
           >
-            {/* Formulaire centré */}
+           
             <div
               className="bg-white p-6 rounded-lg shadow-lg z-50 w-11/12 sm:w-2/3 lg:w-1/3 relative"
               onClick={(e) => e.stopPropagation()} // Empêcher la fermeture lors d'un clic à l'intérieur du formulaire

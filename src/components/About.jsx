@@ -20,7 +20,7 @@ export const About = ({ aboutData, whyChooseUsData }) => {
   }
 
   return (
-    <div className="relative" id="about">
+    <div className="relative z-5" id="à propos">
       {/* Section About */}
       <section className="relative flex flex-col items-center py-10">
         {/* Image de fond avec superposition */}
@@ -34,12 +34,12 @@ export const About = ({ aboutData, whyChooseUsData }) => {
         </div>
 
         {/* Contenu principal */}
-        <div className="relative z-10 px-4 py-8 text-white md:px-8 md:py-16 md:w-4/5 lg:w-3/4 lg:py-24">
+        <div className="relative z-9 px-4 py-8 text-white md:px-8 md:py-16 md:w-4/5 lg:w-3/4 lg:py-24">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase text-center">{aboutData.title}</h2>
           <div className="space-y-6">
             {aboutData.intro &&
               aboutData.intro.map((paragraph, index) => (
-                <p key={index} className="text-xl text-center md:text-xl">
+                <p key={index} className="text-xl text-justify md:text-xl">
                   {paragraph}
                 </p>
               ))}
