@@ -1,7 +1,7 @@
 {
   "Header": {
     "title": "Phoenix Art Construction",
-    "subtitle": "Construire l'avenir avec confiance et qualité",
+    "subtitle": "Construire l'avenir avec confiance",
     "ctaText": "Découvrir nos services"
   },
   "Features": {
@@ -12,42 +12,42 @@
         "id": 1,
         "title": "Qualité Supérieure",
         "description": "Nous offrons des services de construction de haute qualité avec les meilleurs matériaux.",
-        "image": "./assets/headerBg.jpg", 
+        "image": "./assets/features/sup_qual.jpg", 
         "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
       },
       {
         "id": 2,
         "title": "Durabilité",
         "description": "Nos structures sont conçues pour durer et résister aux conditions les plus difficiles.",
-        "image": "./assets/headerBg.jpg",
+        "image": "./assets/features/durabilité.jpg",
         "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
       },
       {
         "id": 3,
         "title": "Innovation",
         "description": "Nous utilisons des technologies de pointe pour fournir des solutions innovantes.",
-        "image": "./assets/headerBg.jpg", 
+        "image": "./assets/features/innovation.jpeg", 
         "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
       },
       {
         "id": 4,
         "title": "Service Client Exceptionnel",
         "description": "Nous nous engageons à offrir un service client de première classe à chaque étape.",
-        "image": "./assets/headerBg.jpg", 
+        "image": "./assets/features/Service_Client.jpg", 
         "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
       },
       {
         "id": 5,
         "title": "Respect des Délais",
         "description": "Nous nous engageons à respecter les délais et à livrer les projets à temps.",
-        "image": "./assets/headerBg.jpg",
+        "image": "./assets/features/deadline.jpg",
         "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
       },
       {
         "id": 6,
         "title": "Écologie",
         "description": "Nous intégrons des pratiques respectueuses de l'environnement dans tous nos projets.",
-        "image": "./assets/headerBg.jpg",
+        "image": "./assets/features/ecologie.jpg",
         "fullDescription": "Our projects use only top-grade materials that are rigorously tested for durability and reliability. We prioritize quality in every aspect of our construction process to deliver exceptional results."
       }
     ]
