@@ -23,7 +23,8 @@ const cardVariants = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: '60vw',
-    height: '80vh',
+    height: 'auto',
+    maxHeight: '80vh', // Pour éviter que ça dépasse l'écran
     zIndex: 50,
     overflow: 'auto',
     backgroundColor: 'rgb(255, 255, 255)',
@@ -56,8 +57,8 @@ const FeatureCards = ({ feature, isExpanded, onCardClick }) => {
         />
       )}
       <motion.div
-        className={`relative p-6 bg-white shadow-lg rounded-lg cursor-pointer ${isExpanded ? 'expanded' : ''}`}
-        style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}
+        className={`relative p-6 bg-white shadow-lg rounded-lg cursor-pointer text-center  ${isExpanded ? 'expanded' : ''}`}
+        style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', minHeight: '350px' }} // minHeight pour conserver la taille
         onClick={handleCardClick}
         variants={cardVariants}
         initial="hidden"
@@ -65,13 +66,12 @@ const FeatureCards = ({ feature, isExpanded, onCardClick }) => {
         exit="hidden"
         transition={{ type: 'spring', stiffness: 300, damping: 30, mass: 1, duration: 0.5 }}
       >
-        {/* Assurez-vous que toutes les images ont la même taille */}
         <img
           src={feature.image}
           alt={feature.title}
-          className={`w-full h-48 object-cover mb-4 rounded-md ${isExpanded ? 'h-48' : ''}`} // Taille fixe en mode normal et agrandi
+          className={`w-full h-48 object-cover mb-4 rounded-md`}
         />
-        <h3 className={`text-xl font-semibold mb-2 ${isExpanded ? 'text-3xl' : ''}`}>
+        <h3 className={`text-xl mb-2  text-center uppercase font-bold ${isExpanded ? 'text-3xl' : ''}`}>
           {feature.title}
         </h3>
         <p className={`text-sm ${isExpanded ? 'text-lg' : ''}`}>
