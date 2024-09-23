@@ -7,6 +7,7 @@ import { Services } from './components/Services';
 import Gallery from './components/Gallery';
 import CommentsList from './components/CommentsList'; 
 import ContactForm from './components/ContactForm';
+import Footer from './components/Footer';
 import JsonData from './data/data.json';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SmoothScroll from 'smooth-scroll';
@@ -120,6 +121,14 @@ const App = () => {
                   variants={sectionVariants}
                 >
                   <ContactForm />
+                </motion.div>
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                  variants={sectionVariants}
+                >
+                  <Footer />
                 </motion.div>
               </>
             }
