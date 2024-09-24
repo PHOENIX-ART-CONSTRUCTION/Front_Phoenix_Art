@@ -47,19 +47,20 @@ export const About = ({ aboutData, whyChooseUsData }) => {
 
       {/* Bouton "En savoir plus" en dehors de la section About */}
       <div className="flex justify-center my-8">
-        <motion.button
-          onClick={handleExpandClick}
-          whileTap={{ scale: 0.95 }} // Effet de pression
-          disabled={isExpanded} // Désactive le bouton s'il est déjà ouvert
-          aria-expanded={isExpanded} // Accessibilité : indique si la section est ouverte
-          aria-label="En savoir plus sur Phoenix Art Construction" // Label pour les lecteurs d'écran
-          className={`bg-blue-500 text-white px-6 py-2 rounded-full ${
-            isExpanded ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-600'
-          }`}
-        >
-          En savoir plus
-        </motion.button>
-      </div>
+          <motion.button
+            onClick={handleExpandClick}
+            whileTap={{ scale: 0.95 }} // Effet de pression
+            disabled={isExpanded} // Désactive le bouton s'il est déjà ouvert
+            aria-expanded={isExpanded} // Accessibilité : indique si la section est ouverte
+            aria-label="En savoir plus sur Phoenix Art Construction" // Label pour les lecteurs d'écran
+            className={`bg-blue-600 text-white px-6 py-2 rounded-full transition duration-300 ${
+              isExpanded ? 'opacity-50 cursor-not-allowed' : 'hover:bg-indigo-500 focus:bg-indigo-600'
+            } focus:outline-none focus:ring-2 focus:ring-blue-300`} // Ajout d'un focus pour l'accessibilité
+          >
+            En savoir plus
+          </motion.button>
+        </div>
+
 
       {/* Section "Pourquoi nous choisir" avec animation Framer Motion */}
       <AnimatePresence>
