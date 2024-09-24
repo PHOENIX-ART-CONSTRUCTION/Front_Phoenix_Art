@@ -1,5 +1,3 @@
-// src/components/molecules/FeatureCards.jsx
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -24,7 +22,7 @@ const cardVariants = {
     transform: 'translate(-50%, -50%)',
     width: '60vw',
     height: 'auto',
-    maxHeight: '80vh', // Pour éviter que ça dépasse l'écran
+    maxHeight: '80vh',
     zIndex: 50,
     overflow: 'auto',
     backgroundColor: 'rgb(255, 255, 255)',
@@ -65,13 +63,16 @@ const FeatureCards = ({ feature, isExpanded, onCardClick }) => {
         animate={isExpanded ? 'expanded' : 'visible'}
         exit="hidden"
         transition={{ type: 'spring', stiffness: 300, damping: 30, mass: 1, duration: 0.5 }}
+        aria-expanded={isExpanded} // Accessibilité
+        aria-label={`Carte ${feature.title}`} // Améliore l'accessibilité
       >
         <img
           src={feature.image}
-          alt={feature.title}
-          className={`w-full h-48 object-cover mb-4 rounded-md`}
+          alt={`Image de ${feature.title}`} 
+          className="w-full h-48 object-cover mb-4 rounded-md"
+          loading="lazy" // Optimisation du chargement des images
         />
-        <h3 className={`text-xl mb-2  text-center uppercase font-bold ${isExpanded ? 'text-3xl' : ''}`}>
+        <h3 className={`text-xl mb-2 text-center uppercase font-bold ${isExpanded ? 'text-3xl' : ''}`}>
           {feature.title}
         </h3>
         <p className={`text-sm ${isExpanded ? 'text-lg' : ''}`}>
