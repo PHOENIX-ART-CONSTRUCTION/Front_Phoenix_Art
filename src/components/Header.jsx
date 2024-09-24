@@ -1,13 +1,13 @@
 import React from 'react';
-import { motion } from 'framer-motion'; 
+import { motion } from 'framer-motion';
 
 export const Header = ({ data }) => {
    // Vérifie si les données ou le titre sont disponibles
   if (!data || !data.title) {
-    return null;// Retourne null si les données ou le titre ne sont pas encore chargés
+    return null; // Retourne null si les données ou le titre ne sont pas encore chargés
   }
 
- // Variants d'animation pour le titre avec un effet de rebond
+  // Variants d'animation pour le titre avec un effet de rebond
   const titleVariants = {
     hidden: { opacity: 0, y: -100 },
     visible: {
@@ -50,7 +50,13 @@ export const Header = ({ data }) => {
 
   return (
     <header className="relative h-screen flex items-center justify-center text-center overflow-hidden">
-      <video autoPlay muted loop className="absolute inset-0 w-full h-full object-cover">
+      <video
+        autoPlay
+        muted
+        loop
+        className="absolute inset-0 w-full h-full object-cover"
+        aria-label="Vidéo de présentation de Phoenix Art Construction montrant des projets de construction réussis" // Amélioration de l'accessibilité
+      >
         <source src="./assets/video.mp4" type="video/mp4" />
         Votre navigateur ne supporte pas la balise vidéo.
       </video>
@@ -66,7 +72,7 @@ export const Header = ({ data }) => {
           variants={titleVariants}
           {...colorCycle} // Ajout de l'animation de cycle de couleurs
         >
-          {data.title}
+          {data.title} 
         </motion.h1>
 
         <motion.div
@@ -89,7 +95,7 @@ export const Header = ({ data }) => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            {data.ctaText}
+            {data.ctaText || "Voir nos services de construction"} {/* Inclure un texte CTA optimisé */}
           </motion.a>
         </motion.div>
       </div>
