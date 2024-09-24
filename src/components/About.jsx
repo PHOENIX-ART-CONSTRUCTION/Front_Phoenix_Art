@@ -24,8 +24,9 @@ export const About = ({ aboutData, whyChooseUsData }) => {
         <div className="absolute inset-0">
           <img
             src={aboutData.image}
-            alt="À propos de Phoenix Art Construction"
+            alt="Vue d'ensemble des projets de Phoenix Art Construction" // Texte alternatif plus descriptif
             className="w-full h-full object-cover opacity-50" // Opacité de l'image
+            loading="lazy" // Chargement différé pour optimiser les performances
           />
           <div className="absolute inset-0 bg-black opacity-60"></div> {/* Superposition noire */}
         </div>
@@ -50,6 +51,8 @@ export const About = ({ aboutData, whyChooseUsData }) => {
           onClick={handleExpandClick}
           whileTap={{ scale: 0.95 }} // Effet de pression
           disabled={isExpanded} // Désactive le bouton s'il est déjà ouvert
+          aria-expanded={isExpanded} // Accessibilité : indique si la section est ouverte
+          aria-label="En savoir plus sur Phoenix Art Construction" // Label pour les lecteurs d'écran
           className={`bg-blue-500 text-white px-6 py-2 rounded-full ${
             isExpanded ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-600'
           }`}
@@ -93,6 +96,7 @@ export const About = ({ aboutData, whyChooseUsData }) => {
             <motion.button
               onClick={handleCollapseClick}
               whileTap={{ scale: 0.95 }} // Effet de pression
+              aria-label="Fermer la section Pourquoi nous choisir" // Label pour les lecteurs d'écran
               className="mt-6 bg-red-500 text-white p-2 flex justify-center items-center rounded-full hover:bg-red-600 transition duration-300"
             >
               <FaChevronUp size={24} />
