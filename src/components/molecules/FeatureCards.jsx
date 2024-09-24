@@ -55,20 +55,23 @@ const FeatureCards = ({ feature, isExpanded, onCardClick }) => {
         />
       )}
       <motion.div
-        className={`relative p-6 bg-white shadow-lg rounded-lg cursor-pointer text-center  ${isExpanded ? 'expanded' : ''}`}
-        style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', minHeight: '350px' }} // minHeight pour conserver la taille
+        className={`relative p-6 bg-white shadow-lg rounded-lg cursor-pointer text-center ${isExpanded ? 'expanded' : ''}`}
+        style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', minHeight: '350px' }}
         onClick={handleCardClick}
+        onKeyPress={(e) => e.key === 'Enter' && handleCardClick()} // Accessibilité clavier
+        tabIndex={0} // Rend la carte focusable
+        role="button" 
         variants={cardVariants}
         initial="hidden"
         animate={isExpanded ? 'expanded' : 'visible'}
         exit="hidden"
         transition={{ type: 'spring', stiffness: 300, damping: 30, mass: 1, duration: 0.5 }}
-        aria-expanded={isExpanded} // Accessibilité
-        aria-label={`Carte ${feature.title}`} // Améliore l'accessibilité
+        aria-expanded={isExpanded}
+        aria-label={`Carte ${feature.title}`}
       >
         <img
           src={feature.image}
-          alt={`Image de ${feature.title}`} 
+          alt={`Image de ${feature.title}`}
           className="w-full h-48 object-cover mb-4 rounded-md"
           loading="lazy" // Optimisation du chargement des images
         />
