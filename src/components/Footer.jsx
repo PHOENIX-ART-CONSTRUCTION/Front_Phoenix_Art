@@ -15,24 +15,48 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Section Réseaux sociaux - centré */}
-          <div className="md:w-1/3 pb-9 ">
-            <h4 className="text-lg font-semibold uppercase  pb-6 text-center">Suivez-nous sur</h4>
+        {/* Section Réseaux sociaux - centré */}
+          <div className="md:w-1/3 pb-9">
+            <h4 className="text-lg font-semibold uppercase pb-6 text-center">Suivez-nous sur</h4>
             <div className="flex justify-center space-x-4">
-              <a href="https://www.facebook.com/profile.php?id=100064267231850" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-800 rounded-full hover:bg-gray-600 transition duration-300">
+              <a
+                href="https://www.facebook.com/profile.php?id=100064267231850"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-gray-800 rounded-full hover:bg-gray-600 transition duration-300"
+                aria-label="Suivez-nous sur Facebook"
+              >
                 <FaFacebookF />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-800 rounded-full hover:bg-gray-600 transition duration-300">
+              <a
+                href="https://twitter.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-gray-800 rounded-full hover:bg-gray-600 transition duration-300"
+                aria-label="Suivez-nous sur Twitter"
+              >
                 <FaTwitter />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-800 rounded-full hover:bg-gray-600 transition duration-300">
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-gray-800 rounded-full hover:bg-gray-600 transition duration-300"
+                aria-label="Suivez-nous sur Instagram"
+              >
                 <FaInstagram />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-800 rounded-full hover:bg-gray-600 transition duration-300">
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-gray-800 rounded-full hover:bg-gray-600 transition duration-300"
+                aria-label="Suivez-nous sur LinkedIn"
+              >
                 <FaLinkedinIn />
               </a>
             </div>
-          </div>
+</div>
 
            {/*Citation*/}
           <div className="text-center pb-1 md:text-left md:w-1/3">
