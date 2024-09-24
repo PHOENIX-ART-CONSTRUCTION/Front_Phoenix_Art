@@ -39,9 +39,17 @@ export const NavBar = () => {
   return (
     <header className="w-full h-15 fixed top-0 left-0 z-50 bg-white shadow-lg transition duration-500 ease-in-out hover:shadow-xl">
       <nav className={`w-full md:h-20 h-14 px-3 lg:px-5 md:px-2 flex justify-between items-center transition-all duration-500 ease-in-out`}>
-        <a href="/" className="md:h-20 h-12">
-          <img src={Logo} alt="Logo" className="h-full w-auto" />
-        </a>
+        
+      <a href="/" className="md:h-20 h-12">
+        <img
+          src={Logo}
+          alt="Logo"
+          className="h-full w-auto"
+          width="200" 
+          height="50" 
+        />
+      </a>
+
         <div className="lg:flex hidden items-center gap-20">
           <ul className="flex items-center justify-center gap-8 text-base font-semibold tracking-wider">
             {['caractéristiques', 'à propos', 'services', 'galerie', 'équipe', 'contact'].map((section) => (
