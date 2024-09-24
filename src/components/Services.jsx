@@ -64,25 +64,28 @@ export const Services = ({ data }) => {
                   >
                     <img
                       src={service.image}
-                      alt={service.name}
+                      alt={`Image de service: ${service.name}`} // Texte alternatif amélioré
                       className="object-cover sm:w-full sm:h-[80%] md:w-[50%] md:h-[50%] lg:w-full lg:h-[90%]"
+                      loading="lazy" // Chargement différé pour améliorer les performances
                     />
                   </div>
                 ))
               ) : (
-                <p>No services available.</p>
+                <p>Aucun service disponible.</p>
               )}
             </div>
           </div>
           {/* Boutons pour naviguer */}
           <button
             onClick={handlePrev}
+            aria-label="Voir le service précédent" // Accessibilité : Label pour les lecteurs d'écran
             className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-lg z-5"
           >
             <FaChevronLeft />
           </button>
           <button
             onClick={handleNext}
+            aria-label="Voir le service suivant" // Accessibilité : Label pour les lecteurs d'écran
             className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-lg z-5"
           >
             <FaChevronRight />
@@ -96,8 +99,9 @@ export const Services = ({ data }) => {
               <div className="w-[80%] h-[80%] overflow-hidden">
                 <img
                   src={data[nextImageIndex].image}
-                  alt={data[nextImageIndex].name}
+                  alt={`Image de service suivant: ${data[nextImageIndex].name}`} // Texte alternatif pour la deuxième image
                   className="object-cover w-full h-full opacity-50"
+                  loading="lazy" // Chargement différé
                 />
               </div>
             )}
