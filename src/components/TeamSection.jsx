@@ -17,7 +17,7 @@ const TeamSection = () => {
   const { name, position, description, image } = teamData.team[currentMember];
 
   return (
-    <section className="w-full shadow-lg py-10 bg-gray-100 flex flex-col items-center">
+    <section id="équipe" className="w-full shadow-lg py-10 bg-gray-100 flex flex-col items-center">
       <div className="max-w-6xl w-full flex flex-col items-center">
         <h2 className="text-3xl font-bold text-gray-800 mb-8">Notre Équipe</h2>
 
