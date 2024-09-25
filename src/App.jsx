@@ -5,6 +5,7 @@ import { Features } from './components/Features';
 import { About } from './components/About';
 import { Services } from './components/Services';
 import Gallery from './components/Gallery';
+import TeamSection from './components/TeamSection';
 import CommentsList from './components/CommentsList'; 
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
@@ -103,6 +104,15 @@ const App = () => {
                   variants={sectionVariants}
                 >
                   <Gallery data={landingPageData.Gallery || {}} />
+                </motion.div>
+
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                  variants={sectionVariants}
+                >
+                  <TeamSection data={landingPageData.TeamSection || {}} />
                 </motion.div>
 
                 <motion.div
