@@ -71,7 +71,7 @@ const Gallery = ({ data }) => {
           Précédent
         </button>
         <span className="flex items-center px-4 py-2">
-          Page {currentPage} sur {totalPages}
+           {currentPage} sur {totalPages}
         </span>
         <button
           onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
