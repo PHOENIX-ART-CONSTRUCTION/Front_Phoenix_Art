@@ -17,7 +17,7 @@ const TeamSection = () => {
   const { name, position, description, image } = teamData.team[currentMember];
 
   return (
-    <section className="w-[90%] py-10 px-20 mx-20 bg-gray-100 rounded-lg flex flex-col items-center">
+    <section className="w-full shadow-lg py-10 bg-gray-100 flex flex-col items-center">
       <div className="max-w-6xl w-full flex flex-col items-center">
         <h2 className="text-3xl font-bold text-gray-800 mb-8">Notre Équipe</h2>
 
@@ -41,23 +41,23 @@ const TeamSection = () => {
                     />
                   </div>
                   <div className="w-full md:w-1/2 h-full p-6">
-                    <h3 className="text-2xl font-semibold mb-2">{name}</h3>
-                    <p className="text-lg text-gray-700 mb-4">{position}</p>
-                    <p className="text-base text-gray-600">{description}</p>
+                    <h3 className="text-2xl text-center font-bold mb-2">{name}</h3>
+                    <p className="text-lg text-gray-700 text-center font-semibold mb-4">{position}</p>
+                    <p className="text-base text-justify text-gray-600">{description}</p>
                   </div>
                 </>
               ) : (
                 <>
                   <div className="w-full md:w-1/2 h-full p-6">
-                    <h3 className="text-2xl font-semibold mb-2">{name}</h3>
-                    <p className="text-lg text-gray-700 mb-4">{position}</p>
-                    <p className="text-base text-gray-600">{description}</p>
+                  <h3 className="text-2xl text-center font-bold mb-2">{name}</h3>
+                    <p className="text-lg text-gray-700 text-center font-semibold mb-4">{position}</p>
+                    <p className="text-base text-justify text-gray-600">{description}</p>
                   </div>
                   <div className="w-full md:w-1/2 h-full p-4">
                     <img
                       src={image}
                       alt={name}
-                      className="w-[400px] h-[450px] object-cover ml-12 rounded-lg shadow-lg"
+                      className="w-[400px] h-[450px] object-cover  rounded-lg shadow-lg"
                     />
                   </div>
                 </>

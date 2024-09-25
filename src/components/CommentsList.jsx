@@ -31,7 +31,7 @@ const CommentsList = ({ comments }) => {
   };
 
   return (
-    <div className="comments-list container mx-auto my-10 p-6 relative">
+    <div className="comments-list container mx-auto my-10 p-6 bg-gray-50 rounded-lg  relative">
       <h2 className="text-4xl uppercase font-bold text-center mb-10">Avis & Commentaires</h2>
 
       {/* Affichage des commentaires */}
