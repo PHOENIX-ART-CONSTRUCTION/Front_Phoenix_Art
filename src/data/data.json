@@ -194,5 +194,37 @@
         "date": "Janvier 2024"
       }
     ]
-  }
+  },
+    "team": [
+      {
+        "name": "Heritiana A.",
+        "position": "Directeur Général",
+        "description": [
+          "Phoenix Art Construction est une entreprise spécialisée dans la rénovation et la construction, offrant des services de haute qualité pour transformer vos idées en réalité. Avec une équipe d'experts passionnés et expérimentés, nous nous engageons à fournir des solutions innovantes, adaptées aux besoins uniques de chaque client.",
+          "Nous intervenons dans divers projets, allant de la rénovation résidentielle aux constructions commerciales, en passant par des travaux d'aménagement intérieur et extérieur. Chez Phoenix Art Construction, nous valorisons l'artisanat, la durabilité et l'excellence, en nous assurant que chaque projet est réalisé avec soin et précision.",
+          "Notre mission est de redonner vie à vos espaces tout en respectant les délais et le budget, pour garantir une satisfaction totale. Que vous ayez un projet de rénovation ambitieux ou des travaux de construction de base, nous sommes là pour vous accompagner à chaque étape, de la conception à la réalisation."
+        ],
+         "image": "./assets/team/Heritiana.jpg"
+      },
+      {
+        "name": "Toky.R",
+        "position": "Directrice des Opérations",
+        "description":[
+          "Phoenix Art Construction est une entreprise spécialisée dans la rénovation et la construction, offrant des services de haute qualité pour transformer vos idées en réalité. Avec une équipe d'experts passionnés et expérimentés, nous nous engageons à fournir des solutions innovantes, adaptées aux besoins uniques de chaque client.",
+          "Nous intervenons dans divers projets, allant de la rénovation résidentielle aux constructions commerciales, en passant par des travaux d'aménagement intérieur et extérieur. Chez Phoenix Art Construction, nous valorisons l'artisanat, la durabilité et l'excellence, en nous assurant que chaque projet est réalisé avec soin et précision.",
+          "Notre mission est de redonner vie à vos espaces tout en respectant les délais et le budget, pour garantir une satisfaction totale. Que vous ayez un projet de rénovation ambitieux ou des travaux de construction de base, nous sommes là pour vous accompagner à chaque étape, de la conception à la réalisation."
+        ],
+        "image": "./assets/team/Toky_R.jpg"
+      },
+      {
+        "name": "Vanissa A.",
+        "position": "Directrice Technique",
+        "description": [
+          "Phoenix Art Construction est une entreprise spécialisée dans la rénovation et la construction, offrant des services de haute qualité pour transformer vos idées en réalité. Avec une équipe d'experts passionnés et expérimentés, nous nous engageons à fournir des solutions innovantes, adaptées aux besoins uniques de chaque client.",
+          "Nous intervenons dans divers projets, allant de la rénovation résidentielle aux constructions commerciales, en passant par des travaux d'aménagement intérieur et extérieur. Chez Phoenix Art Construction, nous valorisons l'artisanat, la durabilité et l'excellence, en nous assurant que chaque projet est réalisé avec soin et précision.",
+          "Notre mission est de redonner vie à vos espaces tout en respectant les délais et le budget, pour garantir une satisfaction totale. Que vous ayez un projet de rénovation ambitieux ou des travaux de construction de base, nous sommes là pour vous accompagner à chaque étape, de la conception à la réalisation."
+        ],
+        "image": "./assets/team/Vanissa.jpg"
+      }
+    ] 
 }
