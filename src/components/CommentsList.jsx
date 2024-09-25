@@ -31,7 +31,7 @@ const CommentsList = ({ comments }) => {
   };
 
   return (
-    <div className="comments-list container mx-auto my-10 p-6 bg-gray-100 rounded-lg shadow-lg relative">
+    <div className="comments-list container mx-auto my-10 p-6 relative">
       <h2 className="text-4xl uppercase font-bold text-center mb-10">Avis & Commentaires</h2>
 
       {/* Affichage des commentaires */}
@@ -39,7 +39,7 @@ const CommentsList = ({ comments }) => {
         <div className="flex flex-wrap -mx-4">
           {commentList.map((comment, index) => (
             <div key={index} className="w-full sm:w-1/2 lg:w-1/3 p-4">
-              <div className="flex items-start mb-4 p-4 bg-white rounded-lg shadow">
+              <div className="flex items-start mb-4 p-4 bg-white rounded-lg shadow-xl">
                 {/* Avatar */}
                 <img
                   src={comment.avatar}

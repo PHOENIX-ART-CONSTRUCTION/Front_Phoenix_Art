@@ -3,7 +3,7 @@ import { FaChevronUp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const About = ({ aboutData, whyChooseUsData }) => {
-  const [isExpanded, setIsExpanded] = useState(false); // État pour gérer l'expansion
+  const [isExpanded, setIsExpanded] = useState(false); // État pour gérer l'expansion 
 
   // Fonction pour gérer l'expansion de la section
   const handleExpandClick = () => setIsExpanded(true);
