@@ -56,7 +56,7 @@ const FeatureCards = ({ feature, isExpanded, onCardClick }) => {
       )}
       <motion.div
         className={`relative p-6 bg-white shadow-lg rounded-lg cursor-pointer text-center ${isExpanded ? 'expanded' : ''}`}
-        style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', minHeight: '350px' }}
+        style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', minHeight: '360px' }}
         onClick={handleCardClick}
         onKeyPress={(e) => e.key === 'Enter' && handleCardClick()} // Accessibilité clavier
         tabIndex={0} // Rend la carte focusable
@@ -78,7 +78,7 @@ const FeatureCards = ({ feature, isExpanded, onCardClick }) => {
         <h3 className={`text-xl mb-2 text-center uppercase font-bold ${isExpanded ? 'text-3xl' : ''}`}>
           {feature.title}
         </h3>
-        <p className={`text-sm ${isExpanded ? 'text-lg' : ''}`}>
+        <p className={`text-sm text-justify ${isExpanded ? 'text-lg' : ''}`}>
           {isExpanded ? feature.fullDescription : feature.description}
         </p>
       </motion.div>
