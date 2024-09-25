@@ -59,7 +59,7 @@ export const NavBar = () => {
               <li key={section}>
                 <a
                   href={`#${section}`}
-                  className="page-scroll uppercase pb-2 hover:text-gray-500 transition duration-300 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-gray-600 after:via-red-500 after:to-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
+                  className="page-scroll uppercase pb-2 hover:text-gray-800 transition duration-300 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-gray-600 after:via-red-500 after:to-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
                 >
                   {section.charAt(0).toUpperCase() + section.slice(1)}
                 </a>
