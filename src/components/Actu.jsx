@@ -22,6 +22,7 @@ const NewsCarousel = ({ newsData }) => {
   return (
     <section className="w-full h-auto bg-gray-100 flex items-center justify-center py-10">
       <div className="max-w-7xl w-full h-auto grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white shadow-lg rounded-lg overflow-hidden">
+        {/* Text content: title, description, and date */}
         <div className="p-6 flex flex-col justify-center text-left space-y-4">
           <h2 className="text-2xl md:text-3xl font-bold">{title}</h2>
           <p className="text-sm text-gray-500">{new Date(date).toLocaleDateString()}</p>
@@ -63,7 +64,7 @@ const mockNewsData = [
     date: '2024-09-15',
   },
   {
-    title: 'Ouverture d’un nouveau bureau à Paris',
+    title: 'Ouverture d’un nouveau bureau à Tana',
     description:
       "Phoenix Art Construction est ravi d'annoncer l'ouverture de son tout nouveau bureau à Tana...",
     image: '/assets/sary4.jpg',
