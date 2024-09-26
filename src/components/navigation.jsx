@@ -55,7 +55,7 @@ export const NavBar = () => {
         {/* Liens du menu pour bureau */}
         <div className="lg:flex hidden items-center gap-20">
           <ul className="flex items-center justify-center gap-8 text-base font-bold tracking-wider">
-            {['caractéristiques', 'à propos', 'services', 'galerie', 'équipe', 'contact'].map((section) => (
+            {['à propos', 'caractéristiques', 'services', 'galerie', 'équipe', 'contact'].map((section) => (
               <li key={section}>
                 <a
                   href={`#${section}`}
@@ -111,7 +111,7 @@ export const NavBar = () => {
             </div>
 
             <ul className="flex flex-col gap-3 pl-2 text-lg font-semibold tracking-wider">
-              {['caractéristiques', 'à propos', 'services', 'galerie', 'équipe', 'contact'].map((section) => (
+              {['à propos', 'caractéristiques', 'services', 'galerie', 'équipe', 'contact'].map((section) => (
                 <li key={section}>
                   <a
                     href={`#${section}`}
