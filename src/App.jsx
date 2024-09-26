@@ -7,6 +7,7 @@ import { Services } from './components/Services';
 import Gallery from './components/Gallery';
 import TeamSection from './components/TeamSection';
 import CommentsList from './components/CommentsList'; 
+import Actu from './components/Actu'; 
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import JsonData from './data/data.json';
@@ -16,12 +17,7 @@ import { motion } from 'framer-motion'; // Import Framer Motion
 
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
-  const [comments, setComments] = useState([
-    { name: 'John Doe', message: 'Super site web !', avatar: 'https://ui-avatars.com/api/?name=John+Doe' },
-    { name: 'Jane Smith', message: 'J\'ai adoré le contenu.', avatar: 'https://ui-avatars.com/api/?name=Jane+Smith' },
-    { name: 'Andriah Mila', message: 'J\'aime le contenu.', avatar: 'https://ui-avatars.com/api/?name=Andriah+Mila' },
-    { name: 'Mitsanta Andriah', message: 'C\'est vraiment interessant les services qu\'offre cette entreprise Phoenix Art.', avatar: 'https://ui-avatars.com/api/?name=Mitsanta+Andriah' }
-  ]);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     setLandingPageData(JsonData);
@@ -73,7 +69,7 @@ const App = () => {
                   viewport={{ once: true, amount: 0.2 }}
                   variants={sectionVariants}
                 >
-                  <Features data={landingPageData.Features || []} />
+                  <Actu />
                 </motion.div>
 
                 <motion.div
@@ -86,6 +82,15 @@ const App = () => {
                     aboutData={landingPageData.About || {}}
                     whyChooseUsData={landingPageData.WhyChooseUs || {}}
                   />
+                </motion.div>
+
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                  variants={sectionVariants}
+                >
+                  <Features data={landingPageData.Features || []} />
                 </motion.div>
 
                 <motion.div
@@ -132,6 +137,7 @@ const App = () => {
                 >
                   <ContactForm />
                 </motion.div>
+
                 <motion.div
                   initial="hidden"
                   whileInView="visible"
