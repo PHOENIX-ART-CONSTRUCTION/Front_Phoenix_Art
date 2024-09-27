@@ -3,52 +3,63 @@ import { ArrowCircleRight, CirclesFour } from '@phosphor-icons/react';
 import SmoothScroll from 'smooth-scroll';
 import Logo from '/assets/logo.png';
 
-// Initialisation de smooth scroll avec des options
+// Initialisation de Smooth Scroll avec des options
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 800,
   speedAsDuration: true,
 });
-// Déclaration de deux états locaux : 'open' pour gérer l'ouverture/fermeture du menu mobile et 'navBarColor' pour changer la couleur de la navbar au scroll
+
 export const NavBar = () => {
-  // Déclaration de deux états locaux : 'open' pour gérer l'ouverture/fermeture du menu mobile et 'navBarColor' pour changer la couleur de la navbar au scroll
   const [open, setOpen] = useState(false);
   const [navBarColor, setNavBarColor] = useState(false);
 
-   // Fonction qui inverse l'état 'open' à chaque clic (ouvre/ferme le menu)
   const handleToggle = () => {
     setOpen(!open);
   };
 
   const handleLinkClick = () => {
-    setOpen(false);// Ferme le menu mobile après un clic sur un lien
+    setOpen(false); // Ferme le menu mobile après un clic sur un lien
   };
 
-   // Fonction qui surveille le scroll et modifie 'navBarColor' en fonction de la position de scroll (si on dépasse 10px de scroll, la couleur de la navbar change)
   const listenScrollEvent = () => {
-    window.scrollY > 10 ? setNavBarColor(true) : setNavBarColor(false);
+    setNavBarColor(window.scrollY > 10);
   };
 
-   // useEffect est utilisé pour écouter les événements de scroll quand le composant est monté
+  // Utilisation de useEffect pour écouter les événements de scroll
   useEffect(() => {
-    window.addEventListener('scroll', listenScrollEvent);
-    return () => {
-      window.removeEventListener('scroll', listenScrollEvent);
-    };
+    const onScroll = () => listenScrollEvent();
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
-    <header className="w-full h-15 fixed top-0 left-0 z-50 bg-white shadow-lg transition duration-500 ease-in-out hover:shadow-xl">
-      <nav className={`w-full md:h-20 h-14 px-3 lg:px-5 md:px-2 flex justify-between items-center transition-all duration-500 ease-in-out`}>
+    <header
+      className={`w-full h-15 fixed top-0 left-0 z-50 shadow-lg transition duration-500 ease-in-out hover:shadow-xl ${
+        navBarColor ? 'bg-white ' : 'bg-white bg-opacity-60'
+      }`}
+    >
+      <nav
+        className="w-full md:h-20 h-14 px-3 lg:px-5 md:px-2 flex justify-between items-center transition-all duration-500 ease-in-out"
+      >
         <a href="/" className="md:h-20 h-12">
-          <img src={Logo} alt="Logo" className="h-full w-auto" />
+          <img
+            src={Logo}
+            alt="Logo de l'entreprise"
+            className="h-full w-auto"
+            width="200"
+            height="50"
+            loading="lazy" // Optimisation des images
+          />
         </a>
+
+        {/* Liens du menu pour bureau */}
         <div className="lg:flex hidden items-center gap-20">
-          <ul className="flex items-center justify-center gap-8 text-base font-semibold tracking-wider">
-            {['caractéristiques', 'à propos', 'services', 'galerie', 'équipe', 'contact'].map((section) => (
+          <ul className="flex items-center justify-center gap-8 text-base font-bold tracking-wider">
+            {['à propos', 'caractéristiques', 'services', 'galerie', 'équipe', 'contact'].map((section) => (
               <li key={section}>
                 <a
                   href={`#${section}`}
-                  className="page-scroll uppercase pb-2 hover:text-gray-500 transition duration-300 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-gray-600 after:via-red-500 after:to-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
+                  className="page-scroll uppercase pb-2 hover:text-gray-800 transition duration-300 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-gray-600 after:via-red-500 after:to-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
                 >
                   {section.charAt(0).toUpperCase() + section.slice(1)}
                 </a>
@@ -56,8 +67,14 @@ export const NavBar = () => {
             ))}
           </ul>
         </div>
+
+        {/* Bouton pour mobile */}
         <div className="lg:hidden flex items-center">
-          <div className="text-gray-950 cursor-pointer" onClick={handleToggle}>
+          <div
+            className="text-gray-950 cursor-pointer"
+            onClick={handleToggle}
+            aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
+          >
             <CirclesFour size={30} color="currentColor" weight="fill" />
           </div>
         </div>
@@ -70,21 +87,31 @@ export const NavBar = () => {
         } transition-all duration-500 ease-out`}
       >
         <div
-          className={`w-[70%] h-screen bg-white flex flex-col justify-between items-center relative ${
+          className={`w-[70%] h-screen bg-white flex flex-col justify-between items-center relative transition-all duration-500 ease-out delay-300 ${
             open ? 'right-0' : '-right-[120vw]'
-          } transition-all duration-500 ease-out delay-300`}
+          }`}
         >
           <section className="w-full px-4 py-6 flex flex-col gap-16">
             <div className="w-full flex justify-between items-center">
               <a href="/" className="md:h-12 h-10">
-                <img src={Logo} alt="Logo" className="h-full w-auto" />
+                <img
+                  src={Logo}
+                  alt="Logo"
+                  className="h-full w-auto"
+                  loading="lazy"
+                />
               </a>
-              <div className="text-gray-950 cursor-pointer" onClick={handleToggle}>
+              <div
+                className="text-gray-950 cursor-pointer"
+                onClick={handleToggle}
+                aria-label="Fermer le menu"
+              >
                 <ArrowCircleRight size={25} color="currentColor" weight="fill" />
               </div>
             </div>
+
             <ul className="flex flex-col gap-3 pl-2 text-lg font-semibold tracking-wider">
-              {['caractéristiques', 'à propos', 'services', 'galerie', 'équipe', 'contact'].map((section) => (
+              {['à propos', 'caractéristiques', 'services', 'galerie', 'équipe', 'contact'].map((section) => (
                 <li key={section}>
                   <a
                     href={`#${section}`}

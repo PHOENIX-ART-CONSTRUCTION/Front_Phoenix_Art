@@ -1,5 +1,3 @@
-// src/components/molecules/FeatureCards.jsx
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -24,7 +22,7 @@ const cardVariants = {
     transform: 'translate(-50%, -50%)',
     width: '60vw',
     height: 'auto',
-    maxHeight: '80vh', // Pour éviter que ça dépasse l'écran
+    maxHeight: '80vh',
     zIndex: 50,
     overflow: 'auto',
     backgroundColor: 'rgb(255, 255, 255)',
@@ -57,24 +55,30 @@ const FeatureCards = ({ feature, isExpanded, onCardClick }) => {
         />
       )}
       <motion.div
-        className={`relative p-6 bg-white shadow-lg rounded-lg cursor-pointer text-center  ${isExpanded ? 'expanded' : ''}`}
-        style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', minHeight: '350px' }} // minHeight pour conserver la taille
+        className={`relative p-6 bg-white shadow-lg rounded-lg cursor-pointer text-center ${isExpanded ? 'expanded' : ''}`}
+        style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', minHeight: '360px' }}
         onClick={handleCardClick}
+        onKeyPress={(e) => e.key === 'Enter' && handleCardClick()} // Accessibilité clavier
+        tabIndex={0} // Rend la carte focusable
+        role="button" 
         variants={cardVariants}
         initial="hidden"
         animate={isExpanded ? 'expanded' : 'visible'}
         exit="hidden"
         transition={{ type: 'spring', stiffness: 300, damping: 30, mass: 1, duration: 0.5 }}
+        aria-expanded={isExpanded}
+        aria-label={`Carte ${feature.title}`}
       >
         <img
           src={feature.image}
-          alt={feature.title}
-          className={`w-full h-48 object-cover mb-4 rounded-md`}
+          alt={`Image de ${feature.title}`}
+          className="w-full h-48 object-cover mb-4 rounded-md"
+          loading="lazy" // Optimisation du chargement des images
         />
-        <h3 className={`text-xl mb-2  text-center uppercase font-bold ${isExpanded ? 'text-3xl' : ''}`}>
+        <h3 className={`text-xl mb-2 text-center uppercase font-bold ${isExpanded ? 'text-3xl' : ''}`}>
           {feature.title}
         </h3>
-        <p className={`text-sm ${isExpanded ? 'text-lg' : ''}`}>
+        <p className={`text-sm text-justify ${isExpanded ? 'text-lg' : ''}`}>
           {isExpanded ? feature.fullDescription : feature.description}
         </p>
       </motion.div>

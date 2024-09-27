@@ -1,8 +1,8 @@
 {
   "Header": {
     "title": "Phoenix Art Construction",
-    "subtitle": "Construire l'avenir avec confiance",
-    "ctaText": "Découvrir nos services"
+    "subtitle": "Construire l'avenir avec confiance et durabilité",
+    "ctaText": "Découvrir nos services "
   },
   "Features": {
     "title": "Nos Caractéristiques",
@@ -10,125 +10,128 @@
     "features": [
       {
         "id": 1,
-        "title": "Qualité Supérieure",
-        "description": "Nous offrons des services de construction de haute qualité avec les meilleurs matériaux.",
+        "title": "Construction de Qualité Supérieure",
+        "description": "Nous offrons des services de construction de haute qualité avec des matériaux premium.",
         "image": "./assets/features/sup_qual.jpg", 
         "fullDescription": [
-          "Chez Phoenix Art Construction, la qualité est notre priorité absolue.",
-          "Nous utilisons uniquement des matériaux de premier choix, rigoureusement sélectionnés et testés pour leur durabilité et leur fiabilité. ",
-          "Chaque étape de notre processus de construction est minutieusement planifiée et exécutée pour garantir que nos projets répondent aux normes les plus élevées.",
-          "Nous croyons fermement que la qualité se reflète dans la satisfaction de nos clients et dans la longévité de nos structures."
-          ] },
+          "Chez Phoenix Art Construction, la qualité dans la construction est notre priorité absolue.",
+          "Nous utilisons uniquement des matériaux de premier choix, rigoureusement sélectionnés pour leur durabilité.",
+          "Chaque étape de notre processus de construction suit les normes les plus élevées.",
+          "Nous croyons fermement que la qualité dans la construction se reflète dans la satisfaction de nos clients."
+        ]
+      },
       {
         "id": 2,
-        "title": "Durabilité",
+        "title": "Construction Durable",
         "description": "Nos structures sont conçues pour durer et résister aux conditions les plus difficiles.",
         "image": "./assets/features/durabilité.jpg",
         "fullDescription": [
-          " La durabilité est essentielle dans chaque projet que nous entreprenons. Nous concevons des structures capables de résister aux rigueurs du temps et des intempéries.",
-          "Grâce à l'utilisation de matériaux robustes et à des techniques de construction avancées, nous assurons que nos bâtiments non seulement tiennent le coup face aux défis environnementaux, ",
-          " mais restent également fonctionnels et esthétiques pendant de nombreuses années. Notre engagement envers la durabilité se traduit par des solutions qui protègent votre investissement à long terme."
-          ] },
+          "La durabilité est essentielle dans chaque projet que nous entreprenons. Nous concevons des structures capables de résister aux rigueurs du temps et des intempéries.",
+          "Grâce à l'utilisation de matériaux robustes et à des techniques de construction avancées, nous assurons que nos bâtiments sont durables, fonctionnels et esthétiques.",
+          "Notre engagement envers la durabilité garantit des solutions qui protègent votre investissement à long terme."
+        ]
+      },
       {
         "id": 3,
-        "title": "Innovation",
+        "title": "Innovation en Construction",
         "description": "Nous utilisons des technologies de pointe pour fournir des solutions innovantes.",
         "image": "./assets/features/innovation.jpeg", 
-        "fullDescription":  [
-          " L'innovation est au cœur de notre philosophie. Nous intégrons les dernières technologies et méthodes de construction pour offrir des solutions novatrices qui répondent aux besoins contemporains.",
-          "Que ce soit par l'utilisation de matériaux écologiques, de logiciels de conception avancés, ou de techniques de construction modulaires, nous nous efforçons de rester à la pointe de l'industrie. ",
-          "Cela nous permet non seulement d'améliorer l'efficacité de nos projets, mais aussi d'optimiser la satisfaction client en offrant des résultats qui dépassent leurs attentes."
-          ] },
+        "fullDescription": [
+          "L'innovation est au cœur de notre philosophie. Nous intégrons les dernières technologies et méthodes de construction pour offrir des solutions novatrices.",
+          "Nous utilisons des matériaux écologiques, des logiciels de conception avancés, et des techniques de construction modulaires pour rester à la pointe.",
+          "Cela améliore l'efficacité et optimise la satisfaction client en offrant des résultats qui dépassent les attentes."
+        ]
+      },
       {
         "id": 4,
         "title": "Service Client Exceptionnel",
-        "description": "Nous nous engageons à offrir un service client de première classe à chaque étape.",
+        "description": "Nous nous engageons à offrir un service client de première classe à chaque étape de votre projet.",
         "image": "./assets/features/Service_Client.jpg", 
-        "fullDescription":  [
-          " Chez Phoenix Art Construction, nous croyons que l'expérience client commence dès le premier contact et se poursuit bien au-delà de la livraison du projet.",
-          "Notre équipe est dédiée à fournir un service client exceptionnel, en étant à l'écoute de vos besoins et en répondant à toutes vos questions. ",
-          "Nous vous accompagnons à chaque étape du processus de construction, garantissant transparence, communication et satisfaction.",
-          "Notre objectif est de créer une relation de confiance qui vous permettra de vous sentir en sécurité dans votre choix de nous confier votre projet."
-          ] },
+        "fullDescription": [
+          "Chez Phoenix Art Construction, l'expérience client commence dès le premier contact et se poursuit bien au-delà de la livraison du projet.",
+          "Notre équipe est dédiée à fournir un service client exceptionnel, en étant à l'écoute de vos besoins et en répondant à toutes vos questions.",
+          "Nous vous accompagnons à chaque étape du processus de construction, garantissant transparence, communication et satisfaction."
+        ]
+      },
       {
         "id": 5,
         "title": "Respect des Délais",
         "description": "Nous nous engageons à respecter les délais et à livrer les projets à temps.",
         "image": "./assets/features/deadline.jpg",
-        "fullDescription":  [
-          " La gestion du temps est cruciale dans le domaine de la construction. Nous nous engageons fermement à respecter les délais convenus et à livrer nos projets dans les temps impartis. ",
+        "fullDescription": [
+          "La gestion du temps est cruciale dans la construction. Nous nous engageons fermement à respecter les délais convenus.",
           "Grâce à une planification rigoureuse et à une coordination efficace de nos équipes, nous minimisons les retards et maximisons l'efficacité.",
-          "Nos clients peuvent avoir l'esprit tranquille en sachant que nous tenons nos promesses et que leurs projets seront achevés dans les délais convenus."
-          ] },
+          "Nos clients peuvent être sûrs que leurs projets seront achevés dans les délais convenus."
+        ]
+      },
       {
         "id": 6,
-        "title": "Écologie",
+        "title": "Construction Écologique",
         "description": "Nous intégrons des pratiques respectueuses de l'environnement dans tous nos projets.",
         "image": "./assets/features/ecologie.jpg",
         "fullDescription": [
-          "L'écologie est au cœur de notre approche en matière de construction.",
-          "Nous sommes conscients de l'impact de nos activités sur l'environnement, et c'est pourquoi nous adoptons des pratiques durables dans chaque projet.",
-          "De l'utilisation de matériaux recyclés à l'optimisation de la consommation d'énergie, nous cherchons à minimiser notre empreinte écologique.",
-          "Notre objectif est de construire non seulement des structures de qualité, mais aussi de préserver notre planète pour les générations futures."
+          "L'écologie est au cœur de notre approche de construction.",
+          "Nous adoptons des pratiques durables dans chaque projet, en utilisant des matériaux recyclés et en optimisant la consommation d'énergie.",
+          "Notre objectif est de construire des structures de qualité tout en minimisant notre empreinte écologique, pour préserver notre planète."
         ]
       }
     ]
   },
   "About": {
     "title": "À propos de Phoenix Art Construction",
-    "intro": [
+     "intro": [
       "Phoenix Art Construction est une entreprise spécialisée dans la rénovation et la construction, offrant des services de haute qualité pour transformer vos idées en réalité. Avec une équipe d'experts passionnés et expérimentés, nous nous engageons à fournir des solutions innovantes, adaptées aux besoins uniques de chaque client.",
       "Nous intervenons dans divers projets, allant de la rénovation résidentielle aux constructions commerciales, en passant par des travaux d'aménagement intérieur et extérieur. Chez Phoenix Art Construction, nous valorisons l'artisanat, la durabilité et l'excellence, en nous assurant que chaque projet est réalisé avec soin et précision.",
       "Notre mission est de redonner vie à vos espaces tout en respectant les délais et le budget, pour garantir une satisfaction totale. Que vous ayez un projet de rénovation ambitieux ou des travaux de construction de base, nous sommes là pour vous accompagner à chaque étape, de la conception à la réalisation."
     ],
     "image": "./assets/headerBg.jpg",
-    "buttonText": "En savoir plus"
+    "buttonText": "En savoir plus sur notre entreprise de construction"
   },
   "WhyChooseUs": {
-    "title": "Pourquoi nous choisir ?",
+    "title": "Pourquoi choisir Phoenix Art Construction ?",
     "details": [
       {
-        "title": "Expertise et Expérience",
-        "description": "Notre équipe est composée de professionnels qualifiés avec des années d'expérience dans le secteur de la construction et de la rénovation. Nous comprenons les besoins de nos clients et nous adaptons à chaque projet pour offrir des solutions sur mesure."
+        "title": "Expertise dans la Construction et Expérience",
+        "description": "Notre équipe est composée de professionnels qualifiés avec des années d'expérience dans la construction et la rénovation."
       },
       {
-        "title": "Qualité et Innovation",
-        "description": "Chez Phoenix Art Construction, nous utilisons des matériaux de première qualité et les techniques les plus récentes pour garantir des résultats durables et esthétiquement agréables. Nous sommes constamment à la recherche de nouvelles idées pour innover et améliorer nos services."
+        "title": "Qualité de Construction et Innovation",
+        "description": "Nous utilisons des matériaux de qualité supérieure et les techniques les plus récentes pour garantir des résultats durables."
       },
       {
-        "title": "Engagement Client",
-        "description": "La satisfaction de nos clients est notre priorité. Nous travaillons en étroite collaboration avec vous, écoutant attentivement vos besoins et vos attentes, pour nous assurer que le résultat final dépasse vos espérances."
+        "title": "Engagement Client et Satisfaction",
+        "description": "La satisfaction de nos clients est notre priorité. Nous travaillons en étroite collaboration avec vous, écoutant attentivement vos besoins."
       },
       {
-        "title": "Respect des délais et du budget",
-        "description": "Nous savons que le temps et l'argent sont précieux. C'est pourquoi nous nous engageons à respecter les délais convenus et à fournir des solutions qui s'adaptent à votre budget, sans compromis sur la qualité."
+        "title": "Respect des Délais et du Budget",
+        "description": "Nous respectons les délais convenus et offrons des solutions qui s'adaptent à votre budget, sans compromis sur la qualité."
       },
       {
-        "title": "Service Personnalisé",
-        "description": "Chaque projet est unique, et nous le traitons comme tel. Nous offrons un service personnalisé et une attention méticuleuse aux détails pour garantir que votre vision soit parfaitement réalisée."
+        "title": "Service de Construction Personnalisé",
+        "description": "Chaque projet est unique, et nous offrons un service personnalisé pour garantir que votre vision soit parfaitement réalisée."
       }
     ]
   },
   "Services": [
     {
       "image": "./assets/services/Services_Packs.jpg", 
-      "name": "Service 1",
-      "text": "Description courte du service 1."
+      "name": "Service de Construction Complète",
+      "text": "Nous offrons des services complets de construction pour répondre à tous vos besoins."
     },
     {
       "image": "./assets/services/Pack_Etude.jpg",  
-      "name": "Service 2",
-      "text": "Description courte du service 2."
+      "name": "Études Techniques",
+      "text": "Des études techniques précises pour garantir la faisabilité de votre projet de construction."
     },
     {
       "image": "./assets/services/Pack_construction.jpg", 
-      "name": "Service 3",
-      "text": "Description courte du service 3."
+      "name": "Service de Construction Résidentielle",
+      "text": "Nos experts vous accompagnent pour des projets de construction résidentielle, en respectant vos besoins."
     },
     {
       "image": "./assets/services/Pack_ingenieurie.jpg",  
-      "name": "Service 4",
-      "text": "Description courte du service 4."
+      "name": "Ingénierie de Construction",
+      "text": "Nos ingénieurs vous proposent des solutions de construction innovantes et durables."
     }
   ],
   "Gallery": {
@@ -150,14 +153,14 @@
       },
       {
         "id": 3,
-        "title": "Lorem ipsum",
+        "title": "Construction d'un immeuble de bureaux",
         "description": "Construction d'un immeuble de bureaux moderne avec des matériaux écologiques.",
         "image": "sary",
         "date": "Janvier 2024"
       },
       {
         "id": 4,
-        "title": "immeuble commercial",
+        "title": "Immeuble commercial moderne",
         "description": "Construction d'un immeuble de bureaux moderne avec des matériaux écologiques.",
         "image": "sary1",
         "date": "Janvier 2024"
@@ -191,5 +194,37 @@
         "date": "Janvier 2024"
       }
     ]
-  }
+  },
+    "team": [
+      {
+        "name": "Heritiana A.",
+        "position": "Directeur Général",
+        "description": [
+          "Phoenix Art Construction est une entreprise spécialisée dans la rénovation et la construction, offrant des services de haute qualité pour transformer vos idées en réalité. Avec une équipe d'experts passionnés et expérimentés, nous nous engageons à fournir des solutions innovantes, adaptées aux besoins uniques de chaque client.",
+          "Nous intervenons dans divers projets, allant de la rénovation résidentielle aux constructions commerciales, en passant par des travaux d'aménagement intérieur et extérieur. Chez Phoenix Art Construction, nous valorisons l'artisanat, la durabilité et l'excellence, en nous assurant que chaque projet est réalisé avec soin et précision.",
+          "Notre mission est de redonner vie à vos espaces tout en respectant les délais et le budget, pour garantir une satisfaction totale. Que vous ayez un projet de rénovation ambitieux ou des travaux de construction de base, nous sommes là pour vous accompagner à chaque étape, de la conception à la réalisation."
+        ],
+         "image": "./assets/team/Heritiana.jpg"
+      },
+      {
+        "name": "Toky.R",
+        "position": "Directrice des Opérations",
+        "description":[
+          "Phoenix Art Construction est une entreprise spécialisée dans la rénovation et la construction, offrant des services de haute qualité pour transformer vos idées en réalité. Avec une équipe d'experts passionnés et expérimentés, nous nous engageons à fournir des solutions innovantes, adaptées aux besoins uniques de chaque client.",
+          "Nous intervenons dans divers projets, allant de la rénovation résidentielle aux constructions commerciales, en passant par des travaux d'aménagement intérieur et extérieur. Chez Phoenix Art Construction, nous valorisons l'artisanat, la durabilité et l'excellence, en nous assurant que chaque projet est réalisé avec soin et précision.",
+          "Notre mission est de redonner vie à vos espaces tout en respectant les délais et le budget, pour garantir une satisfaction totale. Que vous ayez un projet de rénovation ambitieux ou des travaux de construction de base, nous sommes là pour vous accompagner à chaque étape, de la conception à la réalisation."
+        ],
+        "image": "./assets/team/Toky_R.jpg"
+      },
+      {
+        "name": "Vanissa A.",
+        "position": "Directrice Technique",
+        "description": [
+          "Phoenix Art Construction est une entreprise spécialisée dans la rénovation et la construction, offrant des services de haute qualité pour transformer vos idées en réalité. Avec une équipe d'experts passionnés et expérimentés, nous nous engageons à fournir des solutions innovantes, adaptées aux besoins uniques de chaque client.",
+          "Nous intervenons dans divers projets, allant de la rénovation résidentielle aux constructions commerciales, en passant par des travaux d'aménagement intérieur et extérieur. Chez Phoenix Art Construction, nous valorisons l'artisanat, la durabilité et l'excellence, en nous assurant que chaque projet est réalisé avec soin et précision.",
+          "Notre mission est de redonner vie à vos espaces tout en respectant les délais et le budget, pour garantir une satisfaction totale. Que vous ayez un projet de rénovation ambitieux ou des travaux de construction de base, nous sommes là pour vous accompagner à chaque étape, de la conception à la réalisation."
+        ],
+        "image": "./assets/team/Vanissa.jpg"
+      }
+    ] 
 }

@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
 
 export const Services = ({ data }) => {
   const carouselRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false); // État pour le modal
+  const [selectedImage, setSelectedImage] = useState(null); // Image sélectionnée
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,6 +40,16 @@ export const Services = ({ data }) => {
     });
   };
 
+  const openModal = (image) => {
+    setSelectedImage(image);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage(null);
+  };
+
   const nextImageIndex = (currentIndex + 1) % data.length; // Index of the next image
 
   return (
@@ -46,7 +58,7 @@ export const Services = ({ data }) => {
       <h2 className="text-4xl font-bold text-center mt-10 pt-10 uppercase bg-gray-200">
         Nos Services
       </h2>
-      
+
       {/* Section des services */}
       <section id="services" className="w-full h-screen bg-gray-200 text-center px-4 flex flex-col lg:flex-row">
         {/* Première partie: Carrousel principal avec boutons */}
@@ -61,28 +73,32 @@ export const Services = ({ data }) => {
                   <div
                     key={index}
                     className="flex-shrink-0 w-full h-full snap-start flex items-center justify-center px-8"
+                    onClick={() => openModal(service.image)} // Ouvrir le modal lors du clic sur l'image
                   >
                     <img
                       src={service.image}
-                      alt={service.name}
-                      className="object-cover sm:w-full sm:h-[80%] md:w-[50%] md:h-[50%] lg:w-full lg:h-[90%]"
+                      alt={`Image de service: ${service.name}`} // Texte alternatif amélioré
+                      className="object-cover sm:w-full sm:h-[80%] md:w-[50%] md:h-[50%] lg:w-full lg:h-[90%] cursor-pointer"
+                      loading="lazy" // Chargement différé pour améliorer les performances
                     />
                   </div>
                 ))
               ) : (
-                <p>No services available.</p>
+                <p>Aucun service disponible.</p>
               )}
             </div>
           </div>
           {/* Boutons pour naviguer */}
           <button
             onClick={handlePrev}
+            aria-label="Voir le service précédent" // Accessibilité : Label pour les lecteurs d'écran
             className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-lg z-5"
           >
             <FaChevronLeft />
           </button>
           <button
             onClick={handleNext}
+            aria-label="Voir le service suivant" // Accessibilité : Label pour les lecteurs d'écran
             className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-lg z-5"
           >
             <FaChevronRight />
@@ -96,14 +112,35 @@ export const Services = ({ data }) => {
               <div className="w-[80%] h-[80%] overflow-hidden">
                 <img
                   src={data[nextImageIndex].image}
-                  alt={data[nextImageIndex].name}
+                  alt={`Image de service suivant: ${data[nextImageIndex].name}`} 
                   className="object-cover w-full h-full opacity-50"
+                  loading="lazy" // Chargement différé
                 />
               </div>
             )}
           </div>
         </div>
       </section>
+
+      {/* Modal pour afficher l'image en plein écran */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
+          <div className="relative">
+            <img
+              src={selectedImage}
+              alt="Aperçu en plein écran"
+              className="w-full h-auto max-h-screen object-contain"
+            />
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-white text-2xl bg-black p-2 rounded-full"
+              aria-label="Fermer l'aperçu"
+            >
+              <FaTimes />
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };

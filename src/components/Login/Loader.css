@@ -1,0 +1,45 @@
+/* Loader.css */
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Fond noir transparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* S'assurer que l'overlay est au-dessus du contenu */
+  }
+  
+  .loader {
+    width: 50px;
+    --b: 8px; 
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding: 1px;
+    background: conic-gradient(#0000 10%, #3368f0) content-box;
+  
+    /* Standard property */
+    mask: 
+      repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
+      radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
+  
+    /* WebKit specific property */
+    -webkit-mask: 
+      repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
+      radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
+  
+    /* Common properties */
+    mask-composite: intersect;
+    -webkit-mask-composite: destination-in;
+    
+    animation: l4 1s infinite steps(10);
+  }
+  
+  @keyframes l4 {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+  
