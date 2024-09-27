@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /admin_phoenixac/
+Allow: /
+Sitemap: https://ton-site.com/sitemap.xml
