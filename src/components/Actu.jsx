@@ -1,7 +1,30 @@
 import React, { useEffect, useState } from 'react';
 
-const NewsCarousel = ({ newsData }) => {
+const NewsCarousel = () => {
+  const [newsData, setNewsData] = useState([]);
   const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true); // Pour gérer le chargement des données
+  const [error, setError] = useState(null); // Pour gérer les erreurs
+
+  useEffect(() => {
+    // Fonction pour récupérer les données depuis l'API
+    const fetchNewsData = async () => {
+      try {
+        const response = await fetch('https://backphoenixart-1.onrender.com/api/v1/actus/');
+        if (!response.ok) {
+          throw new Error('Erreur lors de la récupération des actualités');
+        }
+        const data = await response.json();
+        setNewsData(data);
+        setIsLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setIsLoading(false);
+      }
+    };
+
+    fetchNewsData();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -12,6 +35,14 @@ const NewsCarousel = ({ newsData }) => {
 
     return () => clearInterval(interval); // Cleanup on component unmount
   }, [newsData]);
+
+  if (isLoading) {
+    return <p className="text-center py-10">Chargement des actualités...</p>;
+  }
+
+  if (error) {
+    return <p className="text-center py-10 text-red-500">{error}</p>;
+  }
 
   if (!newsData || newsData.length === 0) {
     return <p className="text-center py-10">Aucune actualité disponible</p>;
@@ -29,6 +60,7 @@ const NewsCarousel = ({ newsData }) => {
           <p className="text-md md:text-lg text-gray-800">{description}</p>
         </div>
 
+        {/* Image content */}
         <div className="relative w-full h-[350px] md:h-[400px]">
           <img
             src={image}
@@ -41,49 +73,11 @@ const NewsCarousel = ({ newsData }) => {
   );
 };
 
-const mockNewsData = [
-  {
-    title: 'Nouvelle Construction terminée',
-    description:
-      "Phoenix Art Construction est fier d'annoncer la fin de la construction du nouveau siège social de l'entreprise XYZ...",
-    image: '/assets/sary2.jpg',
-    date: '2024-09-20',
-  },
-  {
-    title: 'Lancement d’un nouveau projet',
-    description:
-      "Nous avons récemment commencé un projet ambitieux de construction d’un complexe résidentiel écologique...",
-    image: '/assets/sary1.jpg',
-    date: '2024-09-18',
-  },
-  {
-    title: 'Visite officielle du chantier',
-    description:
-      "Nous avons eu l'honneur d'accueillir le maire de la ville pour une visite de notre chantier de rénovation du centre-ville...",
-    image: '/assets/sary3.jpg',
-    date: '2024-09-15',
-  },
-  {
-    title: 'Ouverture d’un nouveau bureau à Tana',
-    description:
-      "Phoenix Art Construction est ravi d'annoncer l'ouverture de son tout nouveau bureau à Tana...",
-    image: '/assets/sary4.jpg',
-    date: '2024-09-10',
-  },
-  {
-    title: 'Formation sur les nouvelles normes de construction',
-    description:
-      "Nos équipes ont récemment suivi une formation sur les nouvelles normes de construction durable...",
-    image: '/assets/sary.jpg',
-    date: '2024-09-05',
-  },
-];
-
 const NewsSection = () => {
   return (
     <div className="w-full py-10">
       <h2 className="text-4xl font-bold text-center uppercase mb-8">Actualités</h2>
-      <NewsCarousel newsData={mockNewsData} />
+      <NewsCarousel />
     </div>
   );
 };
