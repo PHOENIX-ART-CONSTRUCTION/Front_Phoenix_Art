@@ -50,7 +50,7 @@ const ManageComments = () => {
     <div className="flex">
       <AdminSidebar />
       <div className="w-full h-screen p-6">
-        <h2 className="text-2xl font-bold mb-4">Gestion des Commentaires</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center">Gestion des Commentaires</h2>
         {comments.length > 0 ? (
           comments.map((comment) => (
             <div key={comment._id} className="bg-gray-100 p-4 mb-4 rounded shadow-md">
