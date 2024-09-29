@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaBars, FaTimes, FaNewspaper, FaComment, FaSignOutAlt } from 'react-icons/fa';
+import { FaBars, FaTimes, FaNewspaper, FaComment, FaSignOutAlt, FaUsers  } from 'react-icons/fa';
 
 const AdminSidebar = () => {
   const [loading, setLoading] = useState(false);
@@ -73,17 +73,26 @@ const AdminSidebar = () => {
                 <FaComment size={20} /> <span>Commentaires</span>
               </button>
             </li>
-            {/* Bouton Déconnexion */}
             <li>
               <button
-                onClick={handleLogout}
-                className="flex items-center space-x-3 w-full text-left py-2 px-4 rounded hover:bg-gray-700"
+                onClick={() => handlePageChange('/admin_phoenixac/membres')}
+                className="flex items-center space-x-3 py-2 px-4 rounded hover:bg-gray-700 w-full text-left"
               >
-                <FaSignOutAlt size={20} /> <span>Déconnexion</span>
+                <FaUsers  size={20} /> <span>Membres</span>
               </button>
             </li>
+            {/* Bouton Déconnexion */}
+           
           </ul>
         </nav>
+        <div className="p-4 border-t border-gray-700">
+          <button
+            onClick={handleLogout}
+            className="flex items-center space-x-3 w-full text-left py-2 px-4 rounded hover:bg-gray-700"
+          >
+            <FaSignOutAlt size={20} /> <span>Déconnexion</span>
+          </button>
+        </div>
       </motion.aside>
 
       {/* Loader lors de la déconnexion ou changement de page */}

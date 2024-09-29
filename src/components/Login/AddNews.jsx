@@ -26,11 +26,13 @@ const AddNews = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex bg-gray-300">
       <AdminSidebar />
+      
       <div className="w-full h-screen flex flex-col items-center justify-center">
-        <form onSubmit={handleSubmit} className="bg-white p-6 shadow-md rounded-lg w-3/4">
-          <h2 className="text-2xl font-bold mb-4">Ajouter une Actualité</h2>
+      <h2 className="text-3xl font-bold mb-4 uppercase">Ajouter une Actualité</h2>
+        <form onSubmit={handleSubmit} className="bg-gray-100 p-6 shadow-lg rounded-lg w-3/4">
+          
           <input
             type="text"
             value={news.title}
