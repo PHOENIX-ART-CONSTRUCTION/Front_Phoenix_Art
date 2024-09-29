@@ -1,4 +1,3 @@
-// src/components/AdminSidebar.js
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -22,21 +21,28 @@ const AdminSidebar = () => {
   };
 
   return (
-    <div className="relative flex">
+    <div className="relative">
       {/* Bouton pour ouvrir/fermer le sidebar */}
-      <button onClick={handleToggleSidebar} className="p-4 text-gray-800 bg-white fixed z-50">
-        {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+      <button onClick={handleToggleSidebar} className="p-4 text-gray-800 fixed z-50">
+        {isOpen ? <FaTimes size={24} className="text-white" /> : <FaBars size={24} />}
       </button>
+
+      {/* Overlay semi-transparent */}
+      {isOpen && (
+        <div
+          onClick={handleToggleSidebar} 
+          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+        />
+      )}
 
       {/* Sidebar rétractable */}
       <motion.aside
         initial={{ width: 0 }}
-        animate={{ width: isOpen ? 250 : 0 }} // Largeur du sidebar rétractable
+        animate={{ width: isOpen ? '70%' : 0 }} // Mobile : 70% de largeur
         transition={{ duration: 0.5, ease: 'easeInOut' }}
-        className="bg-gray-800 text-white min-h-screen flex flex-col overflow-hidden"
-      >
+        className="fixed top-0 left-0 bg-gray-800 text-white h-full z-50 flex flex-col overflow-hidden md:w-[40%] lg:w-[40%]">
         <div className="flex items-center justify-center h-16 border-b border-gray-700">
-          <h1 className="text-xl font-bold">Admin Panel</h1>
+          <h1 className="text-xl font-bold uppercase">Admin Panel</h1>
         </div>
 
         {/* Menu du sidebar */}
