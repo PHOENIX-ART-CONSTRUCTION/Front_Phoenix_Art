@@ -87,7 +87,7 @@ const Gallery = ({ data }) => {
           className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50"
           onClick={handleClose}
         >
-          <img src={enlargedImage} alt="Enlarged" className="max-w-full max-h-full object-contain" />
+          <img src={enlargedImage} alt="Enlarged" className="max-w-[80vw] max-h-[80vh] object-contain" />
         </div>
       )}
     </section>
@@ -95,3 +95,13 @@ const Gallery = ({ data }) => {
 };
 
 export default Gallery;
+
+/*
+<div className="max-w-screen-lg max-h-screen w-full h-full flex justify-center items-center">
+<img 
+  src={enlargedImage} 
+  alt="Enlarged" 
+  className="object-contain max-w-[80vw] max-h-[80vh]" 
+/>
+</div>
+</div>*/
