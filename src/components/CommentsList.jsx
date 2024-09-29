@@ -6,9 +6,11 @@ const CommentsList = () => {
   const [newComment, setNewComment] = useState({ name: '', message: '' }); // Nouveaux commentaires
   const [commentList, setCommentList] = useState([]); // Liste des commentaires
   const [loading, setLoading] = useState(true); // Indicateur de chargement
+  const [isSubmitting, setIsSubmitting] = useState(false); // Indicateur d'ajout du commentaire
   const [error, setError] = useState(null); // Gestion des erreurs
   const [currentPage, setCurrentPage] = useState(1); // Page actuelle
   const commentsPerPage = 6; // Nombre de commentaires à afficher par page
+  const [successMessage, setSuccessMessage] = useState(''); // Message de succès
 
   const apiURL = 'https://backphoenixart-1.onrender.com/api/v1/feedback/'; // URL du backend
 
@@ -32,6 +34,7 @@ const CommentsList = () => {
   // Ajout d'un nouveau commentaire
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true); // Activer le loader
 
     // Vérifie que le nom et le message ne sont pas vides
     if (newComment.name && newComment.message) {
@@ -50,8 +53,14 @@ const CommentsList = () => {
 
         // Fermer le formulaire
         setShowForm(false);
+
+        // Afficher un message de succès
+        setSuccessMessage('Commentaire ajouté avec succès!');
+        setTimeout(() => setSuccessMessage(''), 3000); // Effacer le message après 3 secondes
       } catch (err) {
         setError('Erreur lors de l\'ajout du commentaire');
+      } finally {
+        setIsSubmitting(false); // Désactiver le loader
       }
     }
   };
@@ -130,6 +139,12 @@ const CommentsList = () => {
           {showForm ? 'Annuler' : 'Ajouter un commentaire'}
         </button>
       </div>
+
+      {/* Loader lors de l'envoi du commentaire */}
+      {isSubmitting && <p className="text-center text-green-500 font-semibold">Envoi du commentaire...</p>}
+
+      {/* Message de succès */}
+      {successMessage && <p className="text-center text-green-500 font-bold mt-4">{successMessage}</p>}
 
       {/* Overlay et formulaire de commentaire */}
       {showForm && (
