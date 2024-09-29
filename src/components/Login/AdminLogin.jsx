@@ -1,4 +1,3 @@
-// src/components/Login/AdminLogin.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Loader.css'; // Assurez-vous d'importer le fichier CSS
@@ -33,7 +32,7 @@ const AdminLogin = ({ onLogin }) => {
           <div className="loader"></div>
         </div>
       )}
-      <div className="max-w-7xl w-full h-auto grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="max-w-4xl w-full h-auto grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white shadow-lg rounded-lg overflow-hidden">
         {/* Formulaire de connexion */}
         <div className="p-6 flex flex-col justify-center items-center text-left space-y-4">
           <h2 className="text-2xl md:text-3xl font-bold uppercase text-center">Phoenix Admin</h2>
@@ -67,7 +66,7 @@ const AdminLogin = ({ onLogin }) => {
         </div>
 
         {/* Image d'administration */}
-        <div className="relative w-full h-[350px] md:h-[400px] flex items-center justify-center">
+        <div className="relative w-full h-[450px] md:h-[500px] flex items-center justify-center">
           <img
             src="/assets/Admin.jpg"
             alt="Administration"
