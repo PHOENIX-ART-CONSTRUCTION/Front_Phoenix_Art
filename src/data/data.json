@@ -10,8 +10,8 @@
     "features": [
       {
         "id": 1,
-        "title": "Construction de Qualité Supérieure",
-        "description": "Nous offrons des services de construction de haute qualité avec des matériaux premium.",
+        "title": "Construction de Qualité ",
+        "description": "Nous offrons des services de construction de haute qualité avec des matériaux adaptées.",
         "image": "./assets/features/sup_qual.jpg", 
         "fullDescription": [
           "Chez Phoenix Art Construction, la qualité dans la construction est notre priorité absolue.",
@@ -198,7 +198,7 @@
     "team": [
       {
         "name": "Heritiana A.",
-        "position": "Directeur Général",
+        "position": "Gérant",
         "description": [
           "Phoenix Art Construction est une entreprise spécialisée dans la rénovation et la construction, offrant des services de haute qualité pour transformer vos idées en réalité. Avec une équipe d'experts passionnés et expérimentés, nous nous engageons à fournir des solutions innovantes, adaptées aux besoins uniques de chaque client.",
           "Nous intervenons dans divers projets, allant de la rénovation résidentielle aux constructions commerciales, en passant par des travaux d'aménagement intérieur et extérieur. Chez Phoenix Art Construction, nous valorisons l'artisanat, la durabilité et l'excellence, en nous assurant que chaque projet est réalisé avec soin et précision.",
