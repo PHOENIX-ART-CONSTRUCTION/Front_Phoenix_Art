@@ -12,7 +12,8 @@ const CommentsList = () => {
   const commentsPerPage = 6; // Nombre de commentaires à afficher par page
   const [successMessage, setSuccessMessage] = useState(''); // Message de succès
 
-  const apiURL = 'https://backphoenixart-1.onrender.com/api/v1/feedback/'; // URL du backend
+  const apiURL = 'https://backphoenixart-1.onrender.com/api/v1/feedback/'; // URL pour récupérer les commentaires
+  const postCommentURL = 'https://backphoenixart-1.onrender.com/api/v1/feedback/create/'; // URL pour ajouter un commentaire
 
   // Récupération des commentaires
   const fetchComments = async () => {
@@ -40,7 +41,7 @@ const CommentsList = () => {
     if (newComment.name && newComment.message) {
       try {
         // Envoyer la requête POST au backend pour ajouter un commentaire
-        const response = await axios.post(apiURL, {
+        const response = await axios.post(postCommentURL, {
           name: newComment.name,
           message: newComment.message,
         });
