@@ -3,26 +3,45 @@ import { useNavigate } from 'react-router-dom';
 import './Loader.css'; // Assurez-vous d'importer le fichier CSS
 
 const AdminLogin = ({ onLogin }) => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false); // État pour le loader
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true); // Afficher le loader
-    // Logique d'authentification
-    setTimeout(() => { // Simuler un délai d'authentification
-      if (email === 'admin@example.com' && password === 'phoenix_arT/2O20') {
+
+    // Requête POST vers le backend pour authentification
+    try {
+      const response = await fetch('https://backphoenixart-1.onrender.com/api/v1/login/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: username, // Utilisation du username
+          password: password,
+        }),
+      });
+
+      const data = await response.json();
+      
+      if (response.ok) {
+        // Authentification réussie
         onLogin(); // Mettre à jour l'état d'authentification
         navigate('/admin_phoenixac/dashboard'); // Rediriger vers le tableau de bord
       } else {
-        setError('Email ou mot de passe incorrect');
+        // Gestion des erreurs d'authentification
+        setError(data.message || 'Nom d’utilisateur ou mot de passe incorrect');
       }
-      setLoading(false); // Cacher le loader après la tentative
-    }, 2000); // Délai de 2 seconde
+    } catch (error) {
+      setError('Erreur lors de la connexion. Veuillez réessayer.');
+    }
+    
+    setLoading(false); // Cacher le loader après la tentative
   };
 
   return (
@@ -39,11 +58,11 @@ const AdminLogin = ({ onLogin }) => {
           {error && <p className="text-red-500 mb-4">{error}</p>}
           <form onSubmit={handleSubmit} className="w-full">
             <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               className="border p-2 mb-4 w-full"
-              placeholder="Entrez votre email"
+              placeholder="Entrez votre nom d'utilisateur"
               required
             />
             <div className="relative mb-4">

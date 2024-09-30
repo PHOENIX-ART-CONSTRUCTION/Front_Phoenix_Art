@@ -31,9 +31,10 @@ const AdminSidebar = () => {
   return (
     <div className="relative">
       {/* Bouton pour ouvrir/fermer le sidebar */}
-      <button onClick={handleToggleSidebar} className="p-4 text-gray-800 fixed z-50">
-        {isOpen ? <FaTimes size={24} className="text-white" /> : <FaBars size={24} />}
+      <button onClick={handleToggleSidebar} className="p-4 fixed z-70   text-white" >
+        <FaBars size={24} />
       </button>
+
 
       {/* Overlay semi-transparent */}
       {isOpen && (
@@ -46,9 +47,9 @@ const AdminSidebar = () => {
       {/* Sidebar rétractable */}
       <motion.aside
         initial={{ width: 0 }}
-        animate={{ width: isOpen ? '70%' : 0 }} // Mobile : 70% de largeur lorsqu'il est ouvert
+        animate={{ width: isOpen ? '300px' : 0 }} // Mobile : 70% de largeur lorsqu'il est ouvert
         transition={{ duration: 0.5, ease: 'easeInOut' }}
-        className="fixed top-0 left-0 bg-gray-800 text-white h-full z-50 flex flex-col overflow-hidden !md:w-[30%] !lg:w-[30%]" // Définit la largeur à 30% pour md et lg
+        className="fixed top-0 left-0  text-white h-full z-50 flex flex-col overflow-hidden !md:w-[30%] !lg:w-[30%]" style={{ background: '#051D41' }}
       >
         <div className="flex items-center justify-center h-16 border-b border-gray-700">
           <h1 className="text-xl font-bold uppercase">Admin Panel</h1>

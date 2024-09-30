@@ -7,7 +7,7 @@ const NewsCarousel = () => {
   const [error, setError] = useState(null); // Pour gérer les erreurs
 
   useEffect(() => {
-    // Fonction pour récupérer les données depuis l'API
+    //récupérer les données depuis l'API
     const fetchNewsData = async () => {
       try {
         const response = await fetch('https://backphoenixart-1.onrender.com/api/v1/actus/');
@@ -15,7 +15,10 @@ const NewsCarousel = () => {
           throw new Error('Erreur lors de la récupération des actualités');
         }
         const data = await response.json();
-        setNewsData(data);
+        
+        // Trier les actualités par date (du plus récent au plus ancien)
+        const sortedData = data.sort((a, b) => new Date(b.create_at) - new Date(a.create_at));
+        setNewsData(sortedData);
         setIsLoading(false);
       } catch (err) {
         setError(err.message);
@@ -31,7 +34,7 @@ const NewsCarousel = () => {
       if (newsData && newsData.length > 0) {
         setCurrentNewsIndex((prevIndex) => (prevIndex + 1) % newsData.length);
       }
-    }, 5000); // Change news every 5 seconds
+    }, 7000); // Change news every 7 seconds
 
     return () => clearInterval(interval); // Cleanup on component unmount
   }, [newsData]);
@@ -48,16 +51,16 @@ const NewsCarousel = () => {
     return <p className="text-center py-10">Aucune actualité disponible</p>;
   }
 
-  const { title, description, image, date } = newsData[currentNewsIndex];
+  const { title, description, image, create_at } = newsData[currentNewsIndex];
 
   return (
     <section className="w-full h-auto bg-gray-100 flex items-center justify-center py-10">
       <div className="max-w-7xl w-full h-auto grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white shadow-lg rounded-lg overflow-hidden">
         {/* Text content: title, description, and date */}
         <div className="p-6 flex flex-col justify-center text-left space-y-4">
-          <h2 className="text-2xl md:text-3xl font-bold">{title}</h2>
-          <p className="text-sm text-gray-500">{new Date(date).toLocaleDateString()}</p>
+          <h2 className="text-2xl md:text-3xl uppercase text-center font-bold">{title}</h2>
           <p className="text-md md:text-lg text-gray-800">{description}</p>
+          <p className="text-sm text-gray-500">{new Date(create_at).toLocaleDateString()}</p>
         </div>
 
         {/* Image content */}
