@@ -9,14 +9,14 @@ const AddNews = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleImageChange = async (e) => {
+  const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
         setImage(reader.result); // Mettre à jour l'état avec l'image en Base64
       };
-      reader.readAsDataURL(file); // Lire le fichier en tant qu'URL de données
+      reader.readAsDataURL(file);
     }
   };
 
@@ -28,22 +28,22 @@ const AddNews = () => {
     }
 
     setLoading(true);
+    const newsData = { title, description, image };
 
-    const newsData = {
-      title,
-      description,
-      image, // Image en Base64
-    };
-
-    // Récupérer le token d'authentification depuis localStorage
-    const token = localStorage.getItem('authToken');
+    // Récupérez le csrfToken
+    const csrfToken = localStorage.getItem('csrfToken');
+    if (!csrfToken) {
+      alert('Token CSRF manquant.');
+      setLoading(false);
+      return;
+    }
 
     try {
       const response = await fetch('https://backphoenixart-1.onrender.com/api/v1/actus/create/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`, // Ajoutez le token dans les en-têtes
+          'X-CSRF-Token': csrfToken, // Ajoutez le csrfToken ici
         },
         body: JSON.stringify(newsData),
       });
@@ -53,22 +53,22 @@ const AddNews = () => {
         throw new Error(errorData.message || 'Erreur lors de l\'ajout de l\'actualité');
       }
 
-      const data = await response.json();
+      await response.json();
       alert('Actualité ajoutée avec succès !');
       navigate('/admin_phoenixac/dashboard');
     } catch (error) {
-      alert(error.message);
+      alert(`Erreur : ${error.message}`);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="flex min-h-screen  ">
+    <div className="flex min-h-screen">
       <AdminSidebar />
       <div className="flex-1 p-6 bg-gray-300">
         <h2 className="text-2xl font-bold mb-4 text-center uppercase">Ajouter une Actualité</h2>
-        <form onSubmit={handleSubmit} className="bg-gray-100 p-4 mb-4 rounded shadow-md ">
+        <form onSubmit={handleSubmit} className="bg-gray-100 p-4 mb-4 rounded shadow-md">
           <div className="mb-4">
             <label className="block text-gray-700">Titre</label>
             <input

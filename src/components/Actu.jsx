@@ -60,7 +60,7 @@ const NewsCarousel = () => {
       <div className="max-w-5xl w-full h-auto grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white shadow-lg rounded-lg overflow-hidden">
         {/* Texte avec effet slide-in */}
         <div className={`p-6 flex flex-col justify-center text-left space-y-4 transition-transform duration-700 ease-in-out ${fade ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
-          <h2 className="text-xl md:text-2xl uppercase text-center font-bold text-gray-800">{title}</h2>
+          <h2 className="text-4xl md:text-2xl uppercase text-center font-bold text-[#051D41]">{title}</h2>
           <p className="text-sm md:text-base text-gray-700 leading-relaxed">{description}</p>
           <p className="text-xs text-gray-500 italic">{new Date(create_at).toLocaleDateString()}</p>
         </div>
@@ -81,7 +81,7 @@ const NewsCarousel = () => {
 const NewsSection = () => {
   return (
     <div className="w-full py-10">
-      <h2 className="text-3xl md:text-4xl font-bold text-center uppercase mb-8" style={{ color: '#051D41' }}>Actualités</h2>
+      <h2 className="text-4xl md:text-4xl font-bold text-center uppercase text-[#051D41] mb-8" >Actualités</h2>
       <NewsCarousel />
     </div>
   );

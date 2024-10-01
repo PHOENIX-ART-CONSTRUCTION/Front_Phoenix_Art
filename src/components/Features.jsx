@@ -19,7 +19,7 @@ export const Features = ({ data }) => {
 
       {/* Contenu des caractéristiques */}
       <div className="relative z-10 container mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-10 uppercase">
+        <h2 className="text-4xl font-bold text-center mb-10 uppercase text-[#051D41]">
           {data.title}
         </h2>
         <p className="text-lg text-center mb-16">{data.description}</p>

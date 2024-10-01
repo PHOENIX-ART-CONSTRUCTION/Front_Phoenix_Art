@@ -24,9 +24,9 @@ export const About = ({ aboutData, whyChooseUsData }) => {
         <div className="absolute inset-0">
           <img
             src={aboutData.image}
-            alt="Vue d'ensemble des projets de Phoenix Art Construction" // Texte alternatif plus descriptif
-            className="w-full h-full object-cover opacity-50" // Opacité de l'image
-            loading="lazy" // Chargement différé pour optimiser les performances
+            alt="Vue d'ensemble des projets de Phoenix Art Construction" 
+            className="w-full h-full object-cover opacity-50" 
+            loading="lazy" 
           />
           <div className="absolute inset-0 bg-black opacity-60"></div> {/* Superposition noire */}
         </div>
@@ -49,12 +49,12 @@ export const About = ({ aboutData, whyChooseUsData }) => {
       <div className="flex justify-center my-8">
           <motion.button
             onClick={handleExpandClick}
-            whileTap={{ scale: 0.95 }} // Effet de pression
+            whileTap={{ scale: 0.95 }} 
             disabled={isExpanded} // Désactive le bouton s'il est déjà ouvert
             aria-expanded={isExpanded} // Accessibilité : indique si la section est ouverte
             aria-label="En savoir plus sur Phoenix Art Construction" // Label pour les lecteurs d'écran
-            className={`bg-blue-600 text-white px-6 py-2 rounded-full transition duration-300 ${
-              isExpanded ? 'opacity-50 cursor-not-allowed' : 'hover:bg-indigo-500 focus:bg-indigo-600'
+            className={`bg-[#051D41] text-[#BE0B0B] px-6 py-2 rounded-full transition duration-300 ${
+              isExpanded ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#C8CDCD] focus:bg-indigo-600'
             } focus:outline-none focus:ring-2 focus:ring-blue-300`} // Ajout d'un focus pour l'accessibilité
           >
             En savoir plus
@@ -98,7 +98,7 @@ export const About = ({ aboutData, whyChooseUsData }) => {
               onClick={handleCollapseClick}
               whileTap={{ scale: 0.95 }} // Effet de pression
               aria-label="Fermer la section Pourquoi nous choisir" // Label pour les lecteurs d'écran
-              className="mt-6 bg-red-500 text-white p-2 flex justify-center items-center rounded-full hover:bg-red-600 transition duration-300"
+              className="mt-6 bg-[#be0b0b] text-white p-2 flex justify-center items-center rounded-full hover:bg-red-500 transition duration-300"
             >
               <FaChevronUp size={24} />
             </motion.button>

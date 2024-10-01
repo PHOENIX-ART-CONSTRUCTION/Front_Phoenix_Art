@@ -35,11 +35,11 @@ export const NavBar = () => {
   return (
     <header
       className={`w-full h-15 fixed top-0 left-0 z-50 shadow-lg transition duration-500 ease-in-out hover:shadow-xl ${
-        navBarColor ? 'bg-white ' : 'bg-white bg-opacity-60'
+        navBarColor ? 'bg-[#051D41] ' : 'bg-[#051D41] bg-opacity-60'
       }`}
     >
       <nav
-        className="w-full md:h-20 h-14 px-3 lg:px-5 md:px-2 flex justify-between items-center transition-all duration-500 ease-in-out"
+        className="w-full md:h-20 h-14 px-3 lg:px-5 md:px-2 flex justify-between items-center text-[#be0b0b] transition-all duration-500 ease-in-out"
       >
         <a href="/" className="md:h-20 h-12">
           <img
