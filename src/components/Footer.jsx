@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebookF, FaLinkedinIn, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -27,24 +27,6 @@ const Footer = () => {
                 aria-label="Suivez-nous sur Facebook"
               >
                 <FaFacebookF />
-              </a>
-              <a
-                href="https://twitter.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-gray-800 rounded-full hover:bg-gray-600 transition duration-300"
-                aria-label="Suivez-nous sur Twitter"
-              >
-                <FaTwitter />
-              </a>
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-gray-800 rounded-full hover:bg-gray-600 transition duration-300"
-                aria-label="Suivez-nous sur Instagram"
-              >
-                <FaInstagram />
               </a>
               <a
                 href="https://www.linkedin.com/"

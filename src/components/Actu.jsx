@@ -57,11 +57,11 @@ const NewsCarousel = () => {
 
   return (
     <section className="w-full h-auto bg-gray-50 flex items-center justify-center py-10" >
-      <div className="max-w-5xl w-full h-auto grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="max-w-5xl w-full h-auto grid grid-cols-1 lg:grid-cols-2 gap-6 bg-[#051D41]  shadow-lg rounded-lg overflow-hidden">
         {/* Texte avec effet slide-in */}
-        <div className={`p-6 flex flex-col justify-center text-left space-y-4 transition-transform duration-700 ease-in-out ${fade ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
-          <h2 className="text-4xl md:text-2xl uppercase text-center font-bold text-[#051D41]">{title}</h2>
-          <p className="text-sm md:text-base text-gray-700 leading-relaxed">{description}</p>
+        <div className={`p-6 flex flex-col items-center justify-start text-left space-y-4 transition-transform duration-700 ease-in-out ${fade ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+          <h2 className="text-4xl md:text-2xl uppercase text-center font-bold text-[#BE0B0B]">{title}</h2>
+          <p className="text-sm md:text-base text-gray-300 leading-relaxed">{description}</p>
           <p className="text-xs text-gray-500 italic">{new Date(create_at).toLocaleDateString()}</p>
         </div>
 

@@ -25,7 +25,7 @@ const ContactForm = () => {
 
   return (
     <section id='contact' className="w-full h-screen bg-gray-100 flex items-center justify-center py-10">
-      <div className="max-w-7xl w-full h-auto grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="max-w-7xl w-full h-auto grid grid-cols-1 lg:grid-cols-2 gap-6 bg-[#051D41] text-[#be0b0b] shadow-lg rounded-lg overflow-hidden">
         {/* Formulaire de contact */}
         <motion.div
           initial={{ opacity: 0, x: -100 }}
@@ -36,7 +36,7 @@ const ContactForm = () => {
           <h2 className="text-2xl md:text-3xl font-bold uppercase text-center">Contactez-nous</h2>
           <form onSubmit={handleSubmit} className="w-full space-y-6">
             <div>
-              <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
+              <label htmlFor="name" className="block text-gray-400 font-bold mb-2">
                 Nom:
               </label>
               <input
@@ -45,13 +45,13 @@ const ContactForm = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="border p-2 mb-4 w-full rounded-lg"
+                className="border p-2 mb-4 w-full text-gray-400 rounded-lg"
                 placeholder="Entrez votre nom"
                 required
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
+              <label htmlFor="email" className="block text-gray-400 font-bold mb-2">
                 Email:
               </label>
               <input
@@ -66,7 +66,7 @@ const ContactForm = () => {
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-gray-700  font-bold mb-2">
+              <label htmlFor="message" className="block text-gray-400  font-bold mb-2">
                 Message:
               </label>
               <textarea
@@ -82,7 +82,7 @@ const ContactForm = () => {
             </div>
             <button
               type="submit"
-              className=" text-white py-2 px-4 rounded w-full" style={{ background: '#051D41' }}
+              className=" text-white py-2 px-4 rounded bg-[#999595] w-full"
             >
               Envoyer
             </button>
