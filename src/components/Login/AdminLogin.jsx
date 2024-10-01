@@ -32,6 +32,10 @@ const AdminLogin = ({ onLogin }) => {
       if (response.ok) {
         // Authentification réussie
         onLogin(); // Mettre à jour l'état d'authentification
+        
+        // Stockez le csrfToken dans localStorage
+        localStorage.setItem('csrfToken', data.csrfToken);
+
         navigate('/admin_phoenixac/dashboard'); // Rediriger vers le tableau de bord
       } else {
         // Gestion des erreurs d'authentification
@@ -54,7 +58,7 @@ const AdminLogin = ({ onLogin }) => {
       <div className="max-w-4xl w-full h-auto grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white shadow-lg rounded-lg overflow-hidden">
         {/* Formulaire de connexion */}
         <div className="p-6 flex flex-col justify-center items-center text-left space-y-4">
-          <h2 className="text-2xl md:text-3xl font-bold uppercase text-center">Phoenix Admin</h2>
+          <h2 className="text-2xl md:text-3xl font-bold uppercase text-[#BE0B0B] text-center">Phoenix Admin</h2>
           {error && <p className="text-red-500 mb-4">{error}</p>}
           <form onSubmit={handleSubmit} className="w-full">
             <input
@@ -78,19 +82,28 @@ const AdminLogin = ({ onLogin }) => {
                 {showPassword ? 'Masquer' : 'Afficher'}
               </button>
             </div>
-            <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded w-full">
+            <button type="submit" className="bg-[#051D41]  text-white py-2 px-4 rounded w-full">
               Se connecter
             </button>
           </form>
         </div>
 
-        {/* Image d'administration */}
-        <div className="relative w-full h-[450px] md:h-[500px] flex items-center justify-center">
-          <img
-            src="/assets/Admin.jpg"
-            alt="Administration"
-            className="w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
-          />
+        {/* Section avec fond, logo et citation */}
+        <div className="relative w-full h-[450px] md:h-[500px] flex flex-col items-center justify-center bg-[#051D41]">
+        <div className="absolute top-1/4 flex flex-col items-center">
+            <img
+              src="/assets/logo.png"
+              alt="Logo Phoenix"
+              className="w-24 h-24 object-contain mb-4"
+            />
+          </div>
+          
+          {/* Citation inspirante */}
+          <div className="text-white text-center mt-20 px-6">
+            <p className="text-lg italic font-bold uppercase text-gray-500">
+              "La réussite n'est pas le fruit du hasard, mais celui de la persévérance et du travail acharné."
+            </p>
+          </div>
         </div>
       </div>
     </section>

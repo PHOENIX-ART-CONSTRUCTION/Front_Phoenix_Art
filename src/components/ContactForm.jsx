@@ -82,7 +82,7 @@ const ContactForm = () => {
             </div>
             <button
               type="submit"
-              className="bg-blue-500 text-white py-2 px-4 rounded w-full"
+              className=" text-white py-2 px-4 rounded w-full" style={{ background: '#051D41' }}
             >
               Envoyer
             </button>
