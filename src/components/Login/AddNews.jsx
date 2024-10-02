@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import AdminSidebar from './AdminSidebar';
 
 const AddNews = () => {
@@ -7,111 +7,120 @@ const AddNews = () => {
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage(reader.result); // Mettre à jour l'état avec l'image en Base64
-      };
-      reader.readAsDataURL(file);
-    }
+    setImage(e.target.files[0]);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!title || !description || !image) {
-      alert('Veuillez remplir tous les champs.');
-      return;
-    }
-
     setLoading(true);
-    const newsData = { title, description, image };
+    setError(null);
+    setSuccess(false);
 
-    // Récupérez le csrfToken
-    const csrfToken = localStorage.getItem('csrfToken');
-    if (!csrfToken) {
-      alert('Token CSRF manquant.');
-      setLoading(false);
-      return;
-    }
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('description', description);
+    formData.append('image', image);
 
     try {
-      const response = await fetch('https://backphoenixart-1.onrender.com/api/v1/actus/create/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRF-Token': csrfToken, // Ajoutez le csrfToken ici
-        },
-        body: JSON.stringify(newsData),
-      });
+      const response = await axios.post(
+        'https://backphoenixart-1.onrender.com/api/v1/actus/create/',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      );
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Erreur lors de l\'ajout de l\'actualité');
+      if (response.status === 201) {
+        setSuccess(true);
+        setTitle('');
+        setDescription('');
+        setImage(null);
       }
-
-      await response.json();
-      alert('Actualité ajoutée avec succès !');
-      navigate('/admin_phoenixac/dashboard');
-    } catch (error) {
-      alert(`Erreur : ${error.message}`);
+    } catch (err) {
+      setError('Une erreur est survenue. Veuillez réessayer.');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen bg-gray-300">
+      {/* Sidebar */}
       <AdminSidebar />
-      <div className="flex-1 p-6 bg-gray-300">
-        <h2 className="text-2xl font-bold mb-4 text-center uppercase">Ajouter une Actualité</h2>
+
+      {/* Form Content */}
+      <div className="flex-grow p-6">
+        <h1 className="text-2xl font-bold mb-6 text-center uppercase">Ajouter une actualité</h1>
+
+        {success && (
+          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4">
+            Actualité ajoutée avec succès!
+          </div>
+        )}
+
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
+            {error}
+          </div>
+        )}
+
         <form onSubmit={handleSubmit} className="bg-gray-100 p-4 mb-4 rounded shadow-md">
           <div className="mb-4">
-            <label className="block text-gray-700">Titre</label>
+            <label className="block text-gray-700 font-semibold mb-2">Titre</label>
             <input
               type="text"
+              className="w-full p-2 border border-gray-300 rounded-lg"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="mt-1 block w-full border border-gray-100 rounded p-2"
               required
             />
           </div>
+
           <div className="mb-4">
-            <label className="block text-gray-700">Description</label>
+            <label className="block text-gray-700 font-semibold mb-2">Description</label>
             <textarea
+              className="w-full p-2 border border-gray-300 rounded-lg"
+              rows="4"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="mt-1 block w-full border border-gray-300 rounded p-2"
               required
-            />
+            ></textarea>
           </div>
+
           <div className="mb-4">
-            <label className="block text-gray-700">Image</label>
+            <label className="block text-gray-700 font-semibold mb-2">Image</label>
             <input
               type="file"
+              className="w-full p-2 border border-gray-300 rounded-lg"
               onChange={handleImageChange}
-              className="mt-1 block w-full border border-gray-300 rounded p-2"
-              accept="image/*"
               required
             />
-            {image && (
-              <div className="mt-4">
-                <p className="text-gray-700">Aperçu de l'image :</p>
-                <img src={image} alt="Aperçu" className="w-32 h-32 object-cover mt-2 border" />
-              </div>
-            )}
           </div>
-          <button
-            type="submit"
-            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-            disabled={loading}
-          >
-            {loading ? 'Enregistrement...' : 'Ajouter l\'Actualité'}
-          </button>
+
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className={`w-[150px] p-2 text-white font-semibold rounded-lg text-center ${
+                loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#051D41] hover:bg-[#08316f]'
+              }`}
+              disabled={loading}
+            >
+              {loading ? 'Ajout en cours...' : 'Ajouter'}
+            </button>
+          </div>
         </form>
+
+        {loading && (
+          <div className="flex justify-center">
+            <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12"></div>
+          </div>
+        )}
       </div>
     </div>
   );
