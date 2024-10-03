@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AdminLogin from './components/Login/AdminLogin';
 import AddNews from './components/Login/AddNews';
 import ManageComments from './components/Login/ManageComments';
+import ManageMembers from './components/Login/ManageMembers';
 import { NavBar } from './components/navigation';
 import { Header } from './components/Header';
 import { Features } from './components/Features';
@@ -17,8 +18,7 @@ import Footer from './components/Footer';
 import JsonData from './data/data.json';
 import SmoothScroll from 'smooth-scroll';
 import { motion } from 'framer-motion'; 
-import ProtectedRoute from './components/ProtectedRoute'; // Importer le composant ProtectedRoute
-
+import ProtectedRoute from './components/ProtectedRoute'; 
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
   const [comments, setComments] = useState([]);
@@ -164,6 +164,15 @@ const App = () => {
           element={
             <ProtectedRoute 
               element={<ManageComments />} 
+              isAuthenticated={isAuthenticated} 
+            />
+          } 
+        />
+        <Route 
+          path="/admin_phoenixac/membres" 
+          element={
+            <ProtectedRoute 
+              element={<ManageMembers />} 
               isAuthenticated={isAuthenticated} 
             />
           } 

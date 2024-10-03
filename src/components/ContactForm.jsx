@@ -24,20 +24,20 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="w-full my-10 p-0" id="contact">
-      <h2 className="text-4xl uppercase font-bold text-center mb-10">Contactez-nous</h2>
-      <div className="flex flex-col md:flex-row p-0 items-stretch w-full">
-        {/* Première colonne : Formulaire */}
+    <section id='contact' className="w-full h-screen bg-gray-100 flex items-center justify-center py-10">
+      <div className="max-w-7xl w-full h-auto grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white shadow-lg rounded-lg overflow-hidden">
+        {/* Formulaire de contact */}
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-white p-8 shadow-[0_8px_20px_-5px_rgba(0,0,0,0.4),0_2px_10px_rgba(0,0,0,0.1)] flex-1 h-full"
+          className="p-6 flex flex-col justify-center items-center text-left space-y-4"
         >
-          <form onSubmit={handleSubmit} className="space-y-6 h-full">
+          <h2 className="text-2xl md:text-3xl font-bold uppercase text-center">Contactez-nous</h2>
+          <form onSubmit={handleSubmit} className="w-full space-y-6">
             <div>
               <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
-                Nom
+                Nom:
               </label>
               <input
                 type="text"
@@ -45,14 +45,14 @@ const ContactForm = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="border p-2 mb-4 w-full rounded-lg"
                 placeholder="Entrez votre nom"
                 required
               />
             </div>
             <div>
               <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
-                Email
+                Email:
               </label>
               <input
                 type="email"
@@ -60,53 +60,50 @@ const ContactForm = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="border p-2 mb-4 w-full rounded-lg"
                 placeholder="Entrez votre email"
                 required
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-gray-700 font-bold mb-2">
-                Message
+              <label htmlFor="message" className="block text-gray-700  font-bold mb-2">
+                Message:
               </label>
               <textarea
                 id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"  // Désactiver la redimension
+                className="border p-2 w-full rounded-lg resize-none"
                 placeholder="Votre message"
                 rows="5"
-                style={{ height: '117px' }} 
                 required
               ></textarea>
             </div>
-            <div className="text-center">
-              <button
-                type="submit"
-                className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-3 px-8 rounded-full text-lg font-semibold shadow-lg transform transition duration-500 ease-in-out hover:scale-105 hover:bg-gradient-to-r hover:from-blue-600 hover:via-gray-500 hover:to-indigo-600 hover:shadow-xl"
-              >
-                Envoyer
-              </button>
-            </div>
+            <button
+              type="submit"
+              className=" text-white py-2 px-4 rounded w-full" style={{ background: '#051D41' }}
+            >
+              Envoyer
+            </button>
           </form>
         </motion.div>
 
-        {/* Deuxième colonne : Image */}
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex-1 flex justify-center items-center h-full"
+          className="relative w-full h-full flex items-center justify-center"
         >
           <img
             src="/assets/Contact.jpg"
             alt="Contact"
-            className="w-full h-[70%] object-cover shadow-lg"
-             />
+            className="w-full h-full  transition-opacity duration-1000 ease-in-out"
+          />
         </motion.div>
+
       </div>
-    </div>
+    </section>
   );
 };
 

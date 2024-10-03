@@ -6,11 +6,14 @@ const CommentsList = () => {
   const [newComment, setNewComment] = useState({ name: '', message: '' }); // Nouveaux commentaires
   const [commentList, setCommentList] = useState([]); // Liste des commentaires
   const [loading, setLoading] = useState(true); // Indicateur de chargement
+  const [isSubmitting, setIsSubmitting] = useState(false); // Indicateur d'ajout du commentaire
   const [error, setError] = useState(null); // Gestion des erreurs
   const [currentPage, setCurrentPage] = useState(1); // Page actuelle
   const commentsPerPage = 6; // Nombre de commentaires à afficher par page
+  const [successMessage, setSuccessMessage] = useState(''); // Message de succès
 
-  const apiURL = 'https://backphoenixart-1.onrender.com/api/v1/feedback/'; // URL du backend
+  const apiURL = 'https://backphoenixart-1.onrender.com/api/v1/feedback/'; // URL pour récupérer les commentaires
+  const postCommentURL = 'https://backphoenixart-1.onrender.com/api/v1/feedback/create/'; // URL pour ajouter un commentaire
 
   // Récupération des commentaires
   const fetchComments = async () => {
@@ -32,12 +35,13 @@ const CommentsList = () => {
   // Ajout d'un nouveau commentaire
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true); // Activer le loader
 
     // Vérifie que le nom et le message ne sont pas vides
     if (newComment.name && newComment.message) {
       try {
         // Envoyer la requête POST au backend pour ajouter un commentaire
-        const response = await axios.post(apiURL, {
+        const response = await axios.post(postCommentURL, {
           name: newComment.name,
           message: newComment.message,
         });
@@ -50,8 +54,14 @@ const CommentsList = () => {
 
         // Fermer le formulaire
         setShowForm(false);
+
+        // Afficher un message de succès
+        setSuccessMessage('Commentaire ajouté avec succès!');
+        setTimeout(() => setSuccessMessage(''), 3000); // Effacer le message après 3 secondes
       } catch (err) {
         setError('Erreur lors de l\'ajout du commentaire');
+      } finally {
+        setIsSubmitting(false); // Désactiver le loader
       }
     }
   };
@@ -74,7 +84,7 @@ const CommentsList = () => {
   };
 
   return (
-    <div className="comments-list container mx-auto my-10 p-6 bg-gray-50 rounded-lg shadow-sm relative">
+    <div className="comments-list container mx-auto my-10 p-6 bg-gray-100 rounded-lg relative">
       <h2 className="text-4xl font-bold text-center uppercase mb-10">Avis & Commentaires</h2>
 
       {/* Gestion du chargement et des erreurs */}
@@ -130,6 +140,12 @@ const CommentsList = () => {
           {showForm ? 'Annuler' : 'Ajouter un commentaire'}
         </button>
       </div>
+
+      {/* Loader lors de l'envoi du commentaire */}
+      {isSubmitting && <p className="text-center text-green-500 font-semibold">Envoi du commentaire...</p>}
+
+      {/* Message de succès */}
+      {successMessage && <p className="text-center text-green-500 font-bold mt-4">{successMessage}</p>}
 
       {/* Overlay et formulaire de commentaire */}
       {showForm && (
