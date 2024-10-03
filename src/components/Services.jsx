@@ -55,12 +55,12 @@ export const Services = ({ data }) => {
   return (
     <>
       {/* Titre en dehors de la section */}
-      <h2 className="text-4xl font-bold text-center mt-10 pt-10 uppercase bg-gray-200">
+      <h2 className="text-4xl font-bold text-center mt-10 pt-10 uppercase bg-[#051D41] text-[#BE0B0B]">
         Nos Services
       </h2>
 
       {/* Section des services */}
-      <section id="services" className="w-full h-screen bg-gray-200 text-center px-4 flex flex-col lg:flex-row" style={{ background: '#051D41' }}>
+      <section id="services" className="w-full h-screen bg-[#051D41]  text-center px-4 flex flex-col lg:flex-row" style={{ background: '#051D41' }}>
         {/* Première partie: Carrousel principal avec boutons */}
         <div className="relative w-full lg:w-2/3 h-full flex flex-col justify-center items-center">
           <div className="w-full h-[80%] relative overflow-hidden">

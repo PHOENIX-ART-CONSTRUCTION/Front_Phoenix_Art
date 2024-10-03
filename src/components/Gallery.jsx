@@ -39,7 +39,7 @@ const Gallery = ({ data }) => {
 
   return (
     <section id="galerie" className="p-12 pt-24">
-      <h2 className="text-4xl md:text-5xl font-bold mb-10 text-center uppercase">{data.title}</h2>
+      <h2 className="text-4xl md:text-5xl font-bold mb-10 text-center text-[#051D41] uppercase">{data.title}</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {currentItems.map(({ id, image, title, description, date }) => (
           <div

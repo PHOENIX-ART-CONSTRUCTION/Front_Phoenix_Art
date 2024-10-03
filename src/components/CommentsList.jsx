@@ -85,7 +85,7 @@ const CommentsList = () => {
 
   return (
     <div className="comments-list container mx-auto my-10 p-6 bg-gray-100 rounded-lg relative">
-      <h2 className="text-4xl font-bold text-center uppercase mb-10">Avis & Commentaires</h2>
+      <h2 className="text-4xl font-bold text-center text-[#051D41] uppercase mb-10">Avis & Commentaires</h2>
 
       {/* Gestion du chargement et des erreurs */}
       {loading ? (
@@ -124,7 +124,7 @@ const CommentsList = () => {
           <button
             key={index + 1}
             onClick={() => handlePageChange(index + 1)}
-            className={`mx-1 px-4 py-2 rounded ${currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}
+            className={`mx-1 px-4 py-2 rounded ${currentPage === index + 1 ? 'bg-[#051D41] text-white' : 'bg-gray-300'}`}
           >
             {index + 1}
           </button>
@@ -135,7 +135,7 @@ const CommentsList = () => {
       <div className="mt-8 text-center">
         <button
           onClick={handleAddCommentClick}
-          className="px-6 py-3 bg-blue-500 text-white font-bold rounded-lg shadow hover:bg-blue-600"
+          className="px-6 py-3 bg-[#051D41] text-[#be0b0b] font-bold rounded-lg shadow hover:bg-[#042d6a]"
         >
           {showForm ? 'Annuler' : 'Ajouter un commentaire'}
         </button>

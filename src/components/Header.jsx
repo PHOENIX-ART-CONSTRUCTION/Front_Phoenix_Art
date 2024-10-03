@@ -37,9 +37,9 @@ export const Header = ({ data }) => {
 
   // Animation des couleurs du texte (rouge, bleu ciel et gris)
   const colorCycle = {
-    initial: { color: '#d42c2b' }, // Rouge initial
+    initial: { color: '#be0b0b' }, // Rouge initial
     animate: {
-      color: ['#d42c2b', '#2b7fd4', '#93989d'], // Rouge, bleu ciel, gris
+      color: ['#be0b0b', '#051D41', '#7C7C7C'], // Rouge, bleu , gris
       transition: {
         repeat: Infinity,
         repeatType: 'reverse', // Revenir en arrière après chaque cycle
@@ -81,7 +81,7 @@ export const Header = ({ data }) => {
           variants={contentVariants}
         >
           <motion.p
-            className="text-lg md:text-2xl mb-8 uppercase font-bold"
+            className="text-lg md:text-2xl text-[#999595] mb-8 uppercase font-bold"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.7 }}
@@ -91,7 +91,7 @@ export const Header = ({ data }) => {
 
           <motion.a
             href="#services"
-            className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-3 px-6 md:px-8 rounded-full text-lg font-semibold shadow-lg transform transition duration-500 ease-in-out hover:scale-105 hover:bg-gradient-to-r hover:from-blue-600 hover:via-gray-500 hover:to-indigo-600 hover:shadow-xl"
+            className="bg-[#051D41] text-[#BE0B0B] py-3 px-6 md:px-8 rounded-full text-lg font-bold shadow-lg transform transition duration-500 ease-in-out hover:scale-105 hover:bg-[#7C7C7C] hover:shadow-xl"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >

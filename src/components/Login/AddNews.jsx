@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import AdminSidebar from './AdminSidebar';
 
 const AddNews = () => {
@@ -7,112 +7,263 @@ const AddNews = () => {
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+  const [newsList, setNewsList] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingNewsId, setEditingNewsId] = useState(null);
 
-  const handleImageChange = async (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage(reader.result); // Mettre à jour l'état avec l'image en Base64
-      };
-      reader.readAsDataURL(file); // Lire le fichier en tant qu'URL de données
-    }
-  };
+  const itemsPerPage = 2; // Limite d'actualités par page
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await axios.get('https://backphoenixart-1.onrender.com/api/v1/actus/');
+        setNewsList(response.data);
+        setTotalPages(Math.ceil(response.data.length / itemsPerPage));
+      } catch (err) {
+        setError('Erreur lors de la récupération des actualités.');
+      }
+    };
+
+    fetchNews();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!title || !description || !image) {
-      alert('Veuillez remplir tous les champs.');
-      return;
+    setLoading(true);
+    setError(null);
+    setSuccess(false);
+
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('description', description);
+
+    // N'ajoutez pas l'image si vous modifiez une actualité
+    if (!editingNewsId) {
+      formData.append('image', image);
     }
 
-    setLoading(true);
-
-    const newsData = {
-      title,
-      description,
-      image, // Image en Base64
-    };
-
-    // Récupérer le token d'authentification depuis localStorage
-    const token = localStorage.getItem('authToken');
-
     try {
-      const response = await fetch('https://backphoenixart-1.onrender.com/api/v1/actus/create/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`, // Ajoutez le token dans les en-têtes
-        },
-        body: JSON.stringify(newsData),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Erreur lors de l\'ajout de l\'actualité');
+      if (editingNewsId) {
+        await axios.put(`https://backphoenixart-1.onrender.com/api/v1/actus/${editingNewsId}`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+      } else {
+        await axios.post('https://backphoenixart-1.onrender.com/api/v1/actus/create/', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
       }
 
-      const data = await response.json();
-      alert('Actualité ajoutée avec succès !');
-      navigate('/admin_phoenixac/dashboard');
-    } catch (error) {
-      alert(error.message);
+      setSuccess(true);
+      setTitle('');
+      setDescription('');
+      setImage(null);
+      setEditingNewsId(null);
+      setIsModalOpen(false);
+      
+      // Récupérer à nouveau les actualités
+      const response = await axios.get('https://backphoenixart-1.onrender.com/api/v1/actus/');
+      setNewsList(response.data);
+    } catch (err) {
+      setError('Une erreur est survenue. Veuillez réessayer.');
     } finally {
       setLoading(false);
     }
   };
 
+  const openModal = (newsId = null) => {
+    if (newsId) {
+      const newsToEdit = newsList.find((news) => news.id === newsId);
+      setTitle(newsToEdit.title);
+      setDescription(newsToEdit.description);
+      setImage(newsToEdit.image);
+      setEditingNewsId(newsId);
+    } else {
+      setTitle('');
+      setDescription('');
+      setImage(null);
+      setEditingNewsId(null);
+    }
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleDelete = async (newsId) => {
+    try {
+      await axios.delete(`https://backphoenixart-1.onrender.com/api/v1/actus/${newsId}`);
+      setNewsList(newsList.filter((news) => news.id !== newsId));
+    } catch (err) {
+      setError('Erreur lors de la suppression de l\'actualité.');
+    }
+  };
+
   return (
-    <div className="flex min-h-screen  ">
+    <div className="flex min-h-screen bg-gray-300">
       <AdminSidebar />
-      <div className="flex-1 p-6 bg-gray-300">
-        <h2 className="text-2xl font-bold mb-4 text-center uppercase">Ajouter une Actualité</h2>
-        <form onSubmit={handleSubmit} className="bg-gray-100 p-4 mb-4 rounded shadow-md ">
-          <div className="mb-4">
-            <label className="block text-gray-700">Titre</label>
-            <input
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              className="mt-1 block w-full border border-gray-100 rounded p-2"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700">Description</label>
-            <textarea
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              className="mt-1 block w-full border border-gray-300 rounded p-2"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700">Image</label>
-            <input
-              type="file"
-              onChange={handleImageChange}
-              className="mt-1 block w-full border border-gray-300 rounded p-2"
-              accept="image/*"
-              required
-            />
-            {image && (
-              <div className="mt-4">
-                <p className="text-gray-700">Aperçu de l'image :</p>
-                <img src={image} alt="Aperçu" className="w-32 h-32 object-cover mt-2 border" />
-              </div>
-            )}
-          </div>
+
+      <main className="flex-grow p-6">
+        <div className="flex items-center justify-between mb-6">
+          <h1 className="text-2xl font-bold text-center uppercase" aria-label="Actualités">
+            Actualités
+          </h1>
           <button
-            type="submit"
-            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-            disabled={loading}
+            onClick={() => openModal()}
+            className="bg-[#051D41] uppercase font-bold text-[#BE0B0B] p-2 rounded"
           >
-            {loading ? 'Enregistrement...' : 'Ajouter l\'Actualité'}
+            Ajouter une actualité
           </button>
-        </form>
-      </div>
+        </div>
+
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
+            {error}
+          </div>
+        )}
+
+        {success && (
+          <div className="bg-green-100 border  border-green-400 text-green-700 px-4 py-3 rounded relative mb-4">
+            Actualité ajoutée avec succès!
+          </div>
+        )}
+
+        <div>
+          {newsList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((news) => (
+            <div key={news.id} className="bg-gray-100 p-4 mb-4 rounded shadow-md flex flex-col md:flex-row">
+              <div className="flex-grow">
+                <h2 className="font-semibold">{news.title}</h2>
+                <p>{news.description}</p>
+              </div>
+              <img src={news.image} alt={news.title} className="w-full h-48 object-cover mt-2 md:mt-0 md:w-64 md:h-48 ml-0 md:ml-4 rounded" />
+              <div className="flex flex-col items-center justify-center md:flex-row md:items-start md:ml-2 mt-2 md:mt-0">
+                <button
+                  onClick={() => openModal(news.id)}
+                  className="bg-[#051D41] uppercase font-semibold text-[#BE0B0B] p-1 rounded mb-2 md:mb-0 md:mr-2"
+                >
+                  Modifier
+                </button>
+                <button
+                  onClick={() => handleDelete(news.id)}
+                  className="bg-[#BE0B0B] uppercase font-semibold text-white p-1 rounded"
+                >
+                  Supprimer
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-between mt-4">
+          <button
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            className="bg-gray-500 text-white p-2 rounded"
+          >
+            Précédent
+          </button>
+          <span>
+            Page {currentPage} sur {totalPages}
+          </span>
+          <button
+            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+            className="bg-gray-500 text-white p-2 rounded"
+          >
+            Suivant
+          </button>
+        </div>
+
+        {/* Modal pour ajouter/modifier une actualité */}
+        {isModalOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+            <div className="bg-white p-6 rounded shadow-lg w-[90%] md:w-[50%] h-auto"> 
+              <h2 className="text-xl font-bold mb-4 uppercase text-center text-[#051D41]" aria-label={editingNewsId ? 'Modifier l\'actualité' : 'Ajouter une actualité'}>
+                {editingNewsId ? 'Modifier l\'actualité' : 'Ajouter une actualité'}
+              </h2>
+
+              <form onSubmit={handleSubmit}>
+                <div className="mb-4">
+                  <label className="block text-gray-700 font-semibold mb-2" htmlFor="news-title">Titre</label>
+                  <input
+                    type="text"
+                    id="news-title"
+                    className="w-full p-2 border border-gray-300 rounded-lg"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    required
+                    aria-required="true"
+                    placeholder="Entrez le titre ici"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-gray-700 font-semibold mb-2" htmlFor="news-description">Description</label>
+                  <textarea
+                    id="news-description"
+                    className="w-full p-2 border border-gray-300 rounded-lg"
+                    style={{ height: '100px' }} // Hauteur fixe
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    required
+                    aria-required="true"
+                    placeholder="Entrez la description ici"
+                  ></textarea>
+                </div>
+
+                {editingNewsId && (
+                  <div className="mb-4">
+                    <label className="block text-gray-700 font-semibold mb-2">Image actuelle</label>
+                    <img
+                      src={newsList.find((news) => news.id === editingNewsId).image}
+                      alt={`Image de ${title}`}
+                      className="w-full h-48 object-cover rounded"
+                    />
+                  </div>
+                )}
+
+                {!editingNewsId && (
+                  <div className="mb-4">
+                    <label className="block text-gray-700 font-semibold mb-2" htmlFor="news-image">Image</label>
+                    <input
+                      type="file"
+                      id="news-image"
+                      onChange={(e) => setImage(e.target.files[0])}
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                )}
+
+                <div className="flex justify-center">
+                  <button
+                    type="submit"
+                    className="bg-green-500 text-white p-2 rounded-lg"
+                    disabled={loading}
+                  >
+                    {loading ? 'En cours...' : editingNewsId ? 'Modifier' : 'Ajouter'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={closeModal}
+                    className="ml-2 bg-gray-500 text-white p-2 rounded-lg"
+                  >
+                    Annuler
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
+      </main>
     </div>
   );
 };

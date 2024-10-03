@@ -35,11 +35,11 @@ export const NavBar = () => {
   return (
     <header
       className={`w-full h-15 fixed top-0 left-0 z-50 shadow-lg transition duration-500 ease-in-out hover:shadow-xl ${
-        navBarColor ? 'bg-white ' : 'bg-white bg-opacity-60'
+        navBarColor ? 'bg-[#051D41] ' : 'bg-[#051D41] bg-opacity-60'
       }`}
     >
       <nav
-        className="w-full md:h-20 h-14 px-3 lg:px-5 md:px-2 flex justify-between items-center transition-all duration-500 ease-in-out"
+        className="w-full md:h-20 h-14 px-3 lg:px-5 md:px-2 flex justify-between items-center text-[#be0b0b] transition-all duration-500 ease-in-out"
       >
         <a href="/" className="md:h-20 h-12">
           <img
@@ -59,7 +59,7 @@ export const NavBar = () => {
               <li key={section}>
                 <a
                   href={`#${section}`}
-                  className="page-scroll uppercase pb-2 hover:text-gray-800 transition duration-300 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-gray-600 after:via-red-500 after:to-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
+                  className="page-scroll uppercase pb-2 hover:text-[#999595] font-bold transition duration-300 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-gray-600 after:via-red-500 after:to-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
                 >
                   {section.charAt(0).toUpperCase() + section.slice(1)}
                 </a>
@@ -71,7 +71,7 @@ export const NavBar = () => {
         {/* Bouton pour mobile */}
         <div className="lg:hidden flex items-center">
           <div
-            className="text-gray-950 cursor-pointer"
+            className="text-gray-300 cursor-pointer"
             onClick={handleToggle}
             aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
           >

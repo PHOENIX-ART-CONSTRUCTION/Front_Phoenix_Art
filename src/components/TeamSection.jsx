@@ -19,7 +19,7 @@ const TeamSection = () => {
   return (
     <section id="équipe" className="w-full shadow-lg py-10  flex flex-col items-center"  style={{ background: '#051D41' }}>
       <div className="max-w-6xl w-full flex flex-col items-center">
-        <h2 className="text-3xl font-bold text-white uppercase mb-8">Notre Équipe</h2>
+        <h2 className="text-4xl font-bold text-[#be0b0b] uppercase mb-8">Notre Équipe</h2>
 
         <div className="relative w-full h-full">
           <AnimatePresence mode="wait">
@@ -41,7 +41,7 @@ const TeamSection = () => {
                     />
                   </div>
                   <div className="w-full md:w-1/2 h-full p-6">
-                    <h3 className="text-2xl text-center font-bold text-white uppercase mb-2">{name}</h3>
+                    <h3 className="text-2xl text-center font-bold text-[#7C7C7C] uppercase mb-2">{name}</h3>
                     <p className="text-lg text-white text-center font-semibold mb-4">{position}</p>
                     <p className="text-base text-justify text-white">{description}</p>
                   </div>
@@ -49,10 +49,11 @@ const TeamSection = () => {
               ) : (
                 <>
                   <div className="w-full md:w-1/2 h-full p-6">
-                  <h3 className="text-2xl text-center font-bold text-white uppercase mb-2">{name}</h3>
-                    <p className="text-lg text-white text-center font-semibold mb-4">{position}</p>
-                    <p className="text-base text-justify text-white">{description}</p>
+                    <h3 className="text-2xl text-center font-bold text-[#7C7C7C] uppercase mb-2">{name}</h3>
+                      <p className="text-lg text-white text-center font-semibold mb-4">{position}</p>
+                      <p className="text-base text-justify text-white">{description}</p>
                   </div>
+                  
                   <div className="w-full md:w-1/2 h-full p-4">
                     <img
                       src={image}
