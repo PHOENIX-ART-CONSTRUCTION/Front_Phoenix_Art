@@ -49,10 +49,11 @@ const TeamSection = () => {
               ) : (
                 <>
                   <div className="w-full md:w-1/2 h-full p-6">
-                  <h3 className="text-2xl text-center font-bold text-white uppercase mb-2">{name}</h3>
-                    <p className="text-lg text-white text-center font-semibold mb-4">{position}</p>
-                    <p className="text-base text-justify text-white">{description}</p>
+                    <h3 className="text-2xl text-center font-bold text-[#7C7C7C] uppercase mb-2">{name}</h3>
+                      <p className="text-lg text-white text-center font-semibold mb-4">{position}</p>
+                      <p className="text-base text-justify text-white">{description}</p>
                   </div>
+                  
                   <div className="w-full md:w-1/2 h-full p-4">
                     <img
                       src={image}
