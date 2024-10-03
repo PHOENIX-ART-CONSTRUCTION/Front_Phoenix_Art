@@ -118,7 +118,7 @@ const AddNews = () => {
           </h1>
           <button
             onClick={() => openModal()}
-            className="bg-blue-500 text-white p-2 rounded"
+            className="bg-[#051D41] uppercase font-bold text-[#BE0B0B] p-2 rounded"
           >
             Ajouter une actualité
           </button>
@@ -131,7 +131,7 @@ const AddNews = () => {
         )}
 
         {success && (
-          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4">
+          <div className="bg-green-100 border  border-green-400 text-green-700 px-4 py-3 rounded relative mb-4">
             Actualité ajoutée avec succès!
           </div>
         )}
@@ -147,13 +147,13 @@ const AddNews = () => {
               <div className="flex flex-col items-center justify-center md:flex-row md:items-start md:ml-2 mt-2 md:mt-0">
                 <button
                   onClick={() => openModal(news.id)}
-                  className="bg-yellow-500 text-white p-1 rounded mb-2 md:mb-0 md:mr-2"
+                  className="bg-[#051D41] uppercase font-semibold text-[#BE0B0B] p-1 rounded mb-2 md:mb-0 md:mr-2"
                 >
                   Modifier
                 </button>
                 <button
                   onClick={() => handleDelete(news.id)}
-                  className="bg-red-500 text-white p-1 rounded"
+                  className="bg-[#BE0B0B] uppercase font-semibold text-white p-1 rounded"
                 >
                   Supprimer
                 </button>
@@ -186,7 +186,7 @@ const AddNews = () => {
         {isModalOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
             <div className="bg-white p-6 rounded shadow-lg w-[90%] md:w-[50%] h-auto"> 
-              <h2 className="text-xl font-bold mb-4" aria-label={editingNewsId ? 'Modifier l\'actualité' : 'Ajouter une actualité'}>
+              <h2 className="text-xl font-bold mb-4 uppercase text-center text-[#051D41]" aria-label={editingNewsId ? 'Modifier l\'actualité' : 'Ajouter une actualité'}>
                 {editingNewsId ? 'Modifier l\'actualité' : 'Ajouter une actualité'}
               </h2>
 
