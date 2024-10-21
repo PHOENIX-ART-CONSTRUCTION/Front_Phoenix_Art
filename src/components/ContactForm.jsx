@@ -53,7 +53,7 @@ const ContactForm = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="border p-2 mb-4 w-full text-gray-400 rounded-lg"
+                className="border p-2 mb-4 w-full text-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#be0b0b]"
                 placeholder="Entrez votre nom"
                 required
               />
@@ -66,7 +66,7 @@ const ContactForm = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="border p-2 mb-4 w-full rounded-lg"
+                className="border p-2 mb-4 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-[#be0b0b]"
                 placeholder="Entrez votre email"
                 required
               />
@@ -78,7 +78,7 @@ const ContactForm = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
-                className="border p-2 w-full rounded-lg resize-none"
+                className="border p-2 w-full rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-[#be0b0b]"
                 placeholder="Votre message"
                 rows="5"
                 required
@@ -86,7 +86,7 @@ const ContactForm = () => {
             </div>
             <button
               type="submit"
-              className="text-white py-2 px-4 rounded bg-[#999595] w-full"
+              className="text-white py-2 px-4 rounded bg-[#999595] w-full hover:bg-[#be0b0b] transition duration-300"
             >
               Envoyer
             </button>
@@ -102,7 +102,7 @@ const ContactForm = () => {
           <img
             src="/assets/Contact.jpg"
             alt="Contact"
-            className="w-full h-full transition-opacity duration-1000 ease-in-out"
+            className="w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
           />
         </motion.div>
       </div>
