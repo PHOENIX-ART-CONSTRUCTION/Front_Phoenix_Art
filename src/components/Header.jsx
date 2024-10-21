@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export const Header = ({ data }) => {
-   // Vérifie si les données ou le titre sont disponibles
+  // Vérifie si les données ou le titre sont disponibles
   if (!data || !data.title) {
     return null; // Retourne null si les données ou le titre ne sont pas encore chargés
   }
@@ -39,7 +39,7 @@ export const Header = ({ data }) => {
   const colorCycle = {
     initial: { color: '#be0b0b' }, // Rouge initial
     animate: {
-      color: ['#be0b0b', '#051D41', '#7C7C7C'], // Rouge, bleu , gris
+      color: ['#be0b0b', '#051D41', '#7C7C7C'], // Rouge, bleu, gris
       transition: {
         repeat: Infinity,
         repeatType: 'reverse', // Revenir en arrière après chaque cycle
@@ -72,7 +72,7 @@ export const Header = ({ data }) => {
           variants={titleVariants}
           {...colorCycle} // Ajout de l'animation de cycle de couleurs
         >
-          {data.title} 
+          {data.title}
         </motion.h1>
 
         <motion.div
@@ -81,7 +81,7 @@ export const Header = ({ data }) => {
           variants={contentVariants}
         >
           <motion.p
-            className="text-lg md:text-2xl text-[#999595] mb-8 uppercase font-bold"
+            className="text-lg md:text-2xl text-[#E0E0E0] mb-8 uppercase font-bold" // Couleur de texte modifiée pour améliorer le contraste
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.7 }}
@@ -91,14 +91,13 @@ export const Header = ({ data }) => {
 
           <motion.a
             href="#services"
-            className="bg-[#051D41] text-[#BE0B0B] py-3 px-6 md:px-8 rounded-full text-lg font-bold shadow-lg hover:bg-[#0A234B]"
+            className="bg-[#051D41] text-[#FFFFFF] py-3 px-6 md:px-8 rounded-full text-lg font-bold shadow-lg hover:bg-[#0A234B]"
             tabindex="0"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
             {data.ctaText || "Voir nos services de construction"}
           </motion.a>
-
         </motion.div>
       </div>
     </header>
