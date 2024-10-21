@@ -9,7 +9,7 @@ const Footer = () => {
 
           {/* Section Résumé du site */}
           <div className="text-center md:text-left md:w-1/3">
-            <h3 className="text-xl font-semibold uppercase tracking-wider mb-4">Phoenix Art Construction</h3>
+            <h3 className="text-xl font-bold uppercase tracking-wider text-[#be0b0b] mb-4">Phoenix Art Construction</h3>
             <p className="text-gray-400 text-sm font-bold">
               Phoenix Art Construction est un leader dans la construction de bâtiments durables et écologiques, avec un engagement à offrir des solutions innovantes et des matériaux de haute qualité.
             </p>
@@ -42,7 +42,7 @@ const Footer = () => {
 
            {/*Citation*/}
           <div className="text-center pb-1 md:text-left md:w-1/3">
-            <h3 className="text-xl font-semibold uppercase tracking-wider mb-4">Phoenix Art Construction</h3>
+            <h3 className="text-xl font-bold text-[#be0b0b] uppercase tracking-wider mb-4">Phoenix Art Construction</h3>
             <p className="text-gray-400 font-bold uppercase text-md">
                 "Bâtir aujourd'hui, améliorer demain : <br />
                 l'art de la construction au service de l'avenir."

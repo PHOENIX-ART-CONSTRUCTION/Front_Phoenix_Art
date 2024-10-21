@@ -49,17 +49,17 @@ const AdminLogin = ({ onLogin }) => {
   };
 
   return (
-    <section className="w-full h-screen bg-gray-300 flex items-center justify-center py-10">
+    <section className="w-full h-screen bg-gray-300 flex items-center justify-center py-10" aria-labelledby="login-heading">
       {loading && (
-        <div className="loader-overlay">
+        <div className="loader-overlay" aria-live="polite">
           <div className="loader"></div>
         </div>
       )}
       <div className="max-w-4xl w-full h-auto grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white shadow-lg rounded-lg overflow-hidden">
         {/* Formulaire de connexion */}
         <div className="p-6 flex flex-col justify-center items-center text-left space-y-4">
-          <h2 className="text-2xl md:text-3xl font-bold uppercase text-[#BE0B0B] text-center">Phoenix Admin</h2>
-          {error && <p className="text-red-500 mb-4">{error}</p>}
+          <h2 id="login-heading" className="text-2xl md:text-3xl font-bold uppercase text-[#BE0B0B] text-center">Phoenix Admin</h2>
+          {error && <p className="text-red-500 mb-4" role="alert">{error}</p>}
           <form onSubmit={handleSubmit} className="w-full">
             <input
               type="text"
@@ -68,6 +68,7 @@ const AdminLogin = ({ onLogin }) => {
               className="border p-2 mb-4 w-full"
               placeholder="Entrez votre nom d'utilisateur"
               required
+              aria-label="Nom d'utilisateur"
             />
             <div className="relative mb-4">
               <input
@@ -77,12 +78,18 @@ const AdminLogin = ({ onLogin }) => {
                 className="border p-2 w-full"
                 placeholder="Entrez votre mot de passe"
                 required
+                aria-label="Mot de passe"
               />
-              <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-2 top-2">
+              <button 
+                type="button" 
+                onClick={() => setShowPassword(!showPassword)} 
+                className="absolute right-2 top-2"
+                aria-label={showPassword ? 'Masquer le mot de passe' : 'Afficher le mot de passe'}
+              >
                 {showPassword ? 'Masquer' : 'Afficher'}
               </button>
             </div>
-            <button type="submit" className="bg-[#051D41]  text-white py-2 px-4 rounded w-full">
+            <button type="submit" className="bg-[#051D41] text-white py-2 px-4 rounded w-full">
               Se connecter
             </button>
           </form>
@@ -90,11 +97,12 @@ const AdminLogin = ({ onLogin }) => {
 
         {/* Section avec fond, logo et citation */}
         <div className="relative w-full h-[450px] md:h-[500px] flex flex-col items-center justify-center bg-[#051D41]">
-        <div className="absolute top-1/4 flex flex-col items-center">
+          <div className="absolute top-1/4 flex flex-col items-center">
             <img
               src="/assets/logo.png"
               alt="Logo Phoenix"
               className="w-24 h-24 object-contain mb-4"
+              loading="lazy"
             />
           </div>
           

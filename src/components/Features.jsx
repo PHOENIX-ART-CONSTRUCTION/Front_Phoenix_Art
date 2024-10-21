@@ -4,10 +4,11 @@ import FeaturesCards from './molecules/FeatureCards';
 export const Features = ({ data }) => {
   const [expandedFeature, setExpandedFeature] = useState(null);
 
-  if (!data || !data.features || data.features.length === 0) {
+  if (!data?.features?.length) {
     return null; // Retourne null si les données ne sont pas encore chargées ou sont vides
   }
 
+  // Gérer le clic sur la carte de fonctionnalité
   const handleCardClick = (feature) => {
     setExpandedFeature(expandedFeature === feature ? null : feature);
   };
@@ -27,10 +28,10 @@ export const Features = ({ data }) => {
         {/* Grille des cartes de fonctionnalités */}
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${expandedFeature ? 'overflow-hidden' : ''}`}>
           {data.features.map((feature) => (
-            <FeaturesCards 
-              key={feature.id} 
-              feature={feature} 
-              isExpanded={expandedFeature === feature} 
+            <FeaturesCards
+              key={feature.id}
+              feature={feature}
+              isExpanded={expandedFeature === feature}
               onCardClick={() => handleCardClick(feature)}
             />
           ))}
