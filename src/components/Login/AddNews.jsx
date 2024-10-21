@@ -41,7 +41,7 @@ const AddNews = () => {
     formData.append('title', title);
     formData.append('description', description);
 
-    // N'ajoutez pas l'image si vous modifiez une actualité
+    // image non modifiable si on modifie une actualité
     if (!editingNewsId) {
       formData.append('image', image);
     }
@@ -68,7 +68,7 @@ const AddNews = () => {
       setEditingNewsId(null);
       setIsModalOpen(false);
       
-      // Récupérer à nouveau les actualités
+      // Récupérer les actualités
       const response = await axios.get('https://backphoenixart-1.onrender.com/api/v1/actus/');
       setNewsList(response.data);
     } catch (err) {
@@ -111,49 +111,49 @@ const AddNews = () => {
     <div className="flex min-h-screen bg-gray-300">
       <AdminSidebar />
 
-      <main className="flex-grow p-6">
-        <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold text-center uppercase" aria-label="Actualités">
+      <main className="flex-grow p-8"> {/* Augmenter le rembourrage */}
+        <div className="flex items-center justify-between mb-8"> {/* Augmenter l'espace */}
+          <h1 className="text-3xl font-bold text-center uppercase" aria-label="Actualités">
             Actualités
           </h1>
           <button
             onClick={() => openModal()}
-            className="bg-[#051D41] uppercase font-bold text-[#BE0B0B] p-2 rounded"
+            className="bg-[#051D41] uppercase font-bold text-[#BE0B0B] p-3 rounded shadow-md hover:bg-[#040D20]" // Ajouter un effet de survol
           >
             Ajouter une actualité
           </button>
         </div>
 
         {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 shadow-md">
             {error}
           </div>
         )}
 
         {success && (
-          <div className="bg-green-100 border  border-green-400 text-green-700 px-4 py-3 rounded relative mb-4">
+          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4 shadow-md">
             Actualité ajoutée avec succès!
           </div>
         )}
 
         <div>
           {newsList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((news) => (
-            <div key={news.id} className="bg-gray-100 p-4 mb-4 rounded shadow-md flex flex-col md:flex-row">
+            <div key={news.id} className="bg-gray-100 p-4 mb-4 rounded-lg shadow-md flex flex-col md:flex-row">
               <div className="flex-grow">
-                <h2 className="font-semibold">{news.title}</h2>
+                <h2 className="font-semibold text-lg">{news.title}</h2>
                 <p>{news.description}</p>
               </div>
               <img src={news.image} alt={news.title} className="w-full h-48 object-cover mt-2 md:mt-0 md:w-64 md:h-48 ml-0 md:ml-4 rounded" />
               <div className="flex flex-col items-center justify-center md:flex-row md:items-start md:ml-2 mt-2 md:mt-0">
                 <button
                   onClick={() => openModal(news.id)}
-                  className="bg-[#051D41] uppercase font-semibold text-[#BE0B0B] p-1 rounded mb-2 md:mb-0 md:mr-2"
+                  className="bg-[#051D41] uppercase font-semibold text-[#BE0B0B] p-2 m-2 rounded shadow-md hover:bg-[#040D20]" // Ajouter un effet de survol
                 >
                   Modifier
                 </button>
                 <button
                   onClick={() => handleDelete(news.id)}
-                  className="bg-[#BE0B0B] uppercase font-semibold text-white p-1 rounded"
+                  className="bg-[#BE0B0B] uppercase font-semibold text-white p-2 m-2 rounded shadow-md hover:bg-[#A40B0B]" // Ajouter un effet de survol
                 >
                   Supprimer
                 </button>
@@ -166,7 +166,7 @@ const AddNews = () => {
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
-            className="bg-gray-500 text-white p-2 rounded"
+            className="bg-gray-500 text-white p-2 rounded hover:bg-gray-600"
           >
             Précédent
           </button>
@@ -176,7 +176,7 @@ const AddNews = () => {
           <button
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages}
-            className="bg-gray-500 text-white p-2 rounded"
+            className="bg-gray-500 text-white p-2 rounded hover:bg-gray-600"
           >
             Suivant
           </button>
@@ -185,18 +185,18 @@ const AddNews = () => {
         {/* Modal pour ajouter/modifier une actualité */}
         {isModalOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-            <div className="bg-white p-6 rounded shadow-lg w-[90%] md:w-[50%] h-auto"> 
-              <h2 className="text-xl font-bold mb-4 uppercase text-center text-[#051D41]" aria-label={editingNewsId ? 'Modifier l\'actualité' : 'Ajouter une actualité'}>
+            <div className="bg-white p-8 rounded-lg shadow-lg w-[90%] md:w-[50%] h-auto"> {/* Augmenter le rembourrage et les coins arrondis */}
+              <h2 className="text-2xl font-bold mb-4 uppercase text-center text-[#051D41]" aria-label={editingNewsId ? 'Modifier l\'actualité' : 'Ajouter une actualité'}>
                 {editingNewsId ? 'Modifier l\'actualité' : 'Ajouter une actualité'}
               </h2>
 
               <form onSubmit={handleSubmit}>
-                <div className="mb-4">
+                <div className="mb-6">
                   <label className="block text-gray-700 font-semibold mb-2" htmlFor="news-title">Titre</label>
                   <input
                     type="text"
                     id="news-title"
-                    className="w-full p-2 border border-gray-300 rounded-lg"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#051D41]" // Ajouter un focus ring
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
@@ -205,58 +205,47 @@ const AddNews = () => {
                   />
                 </div>
 
-                <div className="mb-4">
+                <div className="mb-6">
                   <label className="block text-gray-700 font-semibold mb-2" htmlFor="news-description">Description</label>
                   <textarea
                     id="news-description"
-                    className="w-full p-2 border border-gray-300 rounded-lg"
-                    style={{ height: '100px' }} // Hauteur fixe
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#051D41]" // Ajouter un focus ring
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     required
                     aria-required="true"
                     placeholder="Entrez la description ici"
-                  ></textarea>
+                  />
                 </div>
 
-                {editingNewsId && (
-                  <div className="mb-4">
-                    <label className="block text-gray-700 font-semibold mb-2">Image actuelle</label>
-                    <img
-                      src={newsList.find((news) => news.id === editingNewsId).image}
-                      alt={`Image de ${title}`}
-                      className="w-full h-48 object-cover rounded"
-                    />
-                  </div>
-                )}
-
                 {!editingNewsId && (
-                  <div className="mb-4">
+                  <div className="mb-6">
                     <label className="block text-gray-700 font-semibold mb-2" htmlFor="news-image">Image</label>
                     <input
                       type="file"
                       id="news-image"
+                      className="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#051D41]"
                       onChange={(e) => setImage(e.target.files[0])}
-                      required
-                      aria-required="true"
+                      accept="image/*"
+                      required={!editingNewsId}
                     />
                   </div>
                 )}
 
-                <div className="flex justify-center">
-                  <button
-                    type="submit"
-                    className="bg-green-500 text-white p-2 rounded-lg"
-                    disabled={loading}
-                  >
-                    {loading ? 'En cours...' : editingNewsId ? 'Modifier' : 'Ajouter'}
-                  </button>
+                <div className="flex justify-end">
                   <button
                     type="button"
                     onClick={closeModal}
-                    className="ml-2 bg-gray-500 text-white p-2 rounded-lg"
+                    className="bg-gray-400 text-white p-2 rounded mr-2 hover:bg-gray-500"
                   >
                     Annuler
+                  </button>
+                  <button
+                    type="submit"
+                    className={`bg-[#051D41] text-white p-2 rounded ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#040D20]'}`} // Ajouter un effet de survol
+                    disabled={loading}
+                  >
+                    {loading ? 'Chargement...' : 'Enregistrer'}
                   </button>
                 </div>
               </form>

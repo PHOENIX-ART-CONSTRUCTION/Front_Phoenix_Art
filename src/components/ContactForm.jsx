@@ -7,6 +7,7 @@ const ContactForm = () => {
     email: '',
     message: '',
   });
+  const [error, setError] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -18,13 +19,21 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Logique pour envoyer les données
+
+    // Basic email validation
+    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      setError('Veuillez entrer un email valide.');
+      return;
+    }
+
+    // Logique pour envoyer les données (ajoutez votre API ici)
     console.log('Form submitted:', formData);
     setFormData({ name: '', email: '', message: '' });
+    setError(''); // Réinitialiser l'erreur
   };
 
   return (
-    <section id='contact' className="w-full h-screen bg-gray-100 flex items-center justify-center py-10">
+    <section id='contact' className="w-full h-screen bg-gray-100 flex items-center justify-center py-10 my-15">
       <div className="max-w-7xl w-full h-auto grid grid-cols-1 lg:grid-cols-2 gap-6 bg-[#051D41] text-[#be0b0b] shadow-lg rounded-lg overflow-hidden">
         {/* Formulaire de contact */}
         <motion.div
@@ -34,11 +43,10 @@ const ContactForm = () => {
           className="p-6 flex flex-col justify-center items-center text-left space-y-4"
         >
           <h2 className="text-2xl md:text-3xl font-bold uppercase text-center">Contactez-nous</h2>
+          {error && <p className="text-red-500">{error}</p>}
           <form onSubmit={handleSubmit} className="w-full space-y-6">
             <div>
-              <label htmlFor="name" className="block text-gray-400 font-bold mb-2">
-                Nom:
-              </label>
+              <label htmlFor="name" className="block text-gray-400 font-bold mb-2">Nom:</label>
               <input
                 type="text"
                 id="name"
@@ -51,9 +59,7 @@ const ContactForm = () => {
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-gray-400 font-bold mb-2">
-                Email:
-              </label>
+              <label htmlFor="email" className="block text-gray-400 font-bold mb-2">Email:</label>
               <input
                 type="email"
                 id="email"
@@ -66,9 +72,7 @@ const ContactForm = () => {
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-gray-400  font-bold mb-2">
-                Message:
-              </label>
+              <label htmlFor="message" className="block text-gray-400 font-bold mb-2">Message:</label>
               <textarea
                 id="message"
                 name="message"
@@ -82,7 +86,7 @@ const ContactForm = () => {
             </div>
             <button
               type="submit"
-              className=" text-white py-2 px-4 rounded bg-[#999595] w-full"
+              className="text-white py-2 px-4 rounded bg-[#999595] w-full"
             >
               Envoyer
             </button>
@@ -98,10 +102,9 @@ const ContactForm = () => {
           <img
             src="/assets/Contact.jpg"
             alt="Contact"
-            className="w-full h-full  transition-opacity duration-1000 ease-in-out"
+            className="w-full h-full transition-opacity duration-1000 ease-in-out"
           />
         </motion.div>
-
       </div>
     </section>
   );
