@@ -47,10 +47,7 @@ export const About = ({ aboutData, whyChooseUsData }) => {
           whileTap={{ scale: 0.95 }}
           aria-expanded={isExpanded}
           aria-label="En savoir plus sur Phoenix Art Construction"
-          className={`bg-[#051D41] text-[#BE0B0B] px-6 py-2 rounded-full transition duration-300 ${
-            isExpanded ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#C8CDCD]'
-          } focus:outline-none focus:ring-2 focus:ring-blue-300`}
-        >
+          className={`bg-[#051D41] text-[#BE0B0B] px-6 py-2 rounded-full transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-300`} >
           {isExpanded ? 'Réduire' : 'En savoir plus'}
         </motion.button>
       </div>
@@ -85,14 +82,6 @@ export const About = ({ aboutData, whyChooseUsData }) => {
                   </motion.li>
                 ))}
             </ol>
-            <motion.button
-              onClick={toggleExpand}
-              whileTap={{ scale: 0.95 }}
-              aria-label="Fermer la section Pourquoi nous choisir"
-              className="mt-6 bg-[#be0b0b] text-white p-2 flex justify-center items-center rounded-full hover:bg-red-500 transition duration-300"
-            >
-              <FaChevronUp size={24} />
-            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
