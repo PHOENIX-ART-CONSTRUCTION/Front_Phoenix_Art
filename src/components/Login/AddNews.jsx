@@ -16,6 +16,7 @@ const AddNews = () => {
   const [editingNewsId, setEditingNewsId] = useState(null);
 
   const itemsPerPage = 2; // Limite d'actualités par page
+  const maxDescriptionLength = 550; // Limite de caractères pour la description
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -33,6 +34,10 @@ const AddNews = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (description.length > maxDescriptionLength) {
+      setError(`La description ne peut pas dépasser ${maxDescriptionLength} caractères.`);
+      return;
+    }
     setLoading(true);
     setError(null);
     setSuccess(false);
@@ -41,7 +46,6 @@ const AddNews = () => {
     formData.append('title', title);
     formData.append('description', description);
 
-    // image non modifiable si on modifie une actualité
     if (!editingNewsId) {
       formData.append('image', image);
     }
@@ -67,8 +71,7 @@ const AddNews = () => {
       setImage(null);
       setEditingNewsId(null);
       setIsModalOpen(false);
-      
-      // Récupérer les actualités
+
       const response = await axios.get('https://backphoenixart-1.onrender.com/api/v1/actus/');
       setNewsList(response.data);
     } catch (err) {
@@ -111,14 +114,14 @@ const AddNews = () => {
     <div className="flex min-h-screen bg-gray-300">
       <AdminSidebar />
 
-      <main className="flex-grow p-8"> {/* Augmenter le rembourrage */}
-        <div className="flex items-center justify-between mb-8"> {/* Augmenter l'espace */}
+      <main className="flex-grow p-8">
+        <div className="flex items-center justify-between mb-8">
           <h1 className="text-3xl font-bold text-center uppercase" aria-label="Actualités">
             Actualités
           </h1>
           <button
             onClick={() => openModal()}
-            className="bg-[#051D41] uppercase font-bold text-[#BE0B0B] p-3 rounded shadow-md hover:bg-[#040D20]" // Ajouter un effet de survol
+            className="bg-[#051D41] uppercase font-bold text-[#BE0B0B] p-3 rounded shadow-md hover:bg-[#040D20]"
           >
             Ajouter une actualité
           </button>
@@ -147,13 +150,13 @@ const AddNews = () => {
               <div className="flex flex-col items-center justify-center md:flex-row md:items-start md:ml-2 mt-2 md:mt-0">
                 <button
                   onClick={() => openModal(news.id)}
-                  className="bg-[#051D41] uppercase font-semibold text-[#BE0B0B] p-2 m-2 rounded shadow-md hover:bg-[#040D20]" // Ajouter un effet de survol
+                  className="bg-[#051D41] uppercase font-semibold text-[#BE0B0B] p-2 m-2 rounded shadow-md hover:bg-[#040D20]"
                 >
                   Modifier
                 </button>
                 <button
                   onClick={() => handleDelete(news.id)}
-                  className="bg-[#BE0B0B] uppercase font-semibold text-white p-2 m-2 rounded shadow-md hover:bg-[#A40B0B]" // Ajouter un effet de survol
+                  className="bg-[#BE0B0B] uppercase font-semibold text-white p-2 m-2 rounded shadow-md hover:bg-[#A40B0B]"
                 >
                   Supprimer
                 </button>
@@ -182,10 +185,9 @@ const AddNews = () => {
           </button>
         </div>
 
-        {/* Modal pour ajouter/modifier une actualité */}
         {isModalOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-            <div className="bg-white p-8 rounded-lg shadow-lg w-[90%] md:w-[50%] h-auto"> {/* Augmenter le rembourrage et les coins arrondis */}
+            <div className="bg-white p-8 rounded-lg shadow-lg w-[90%] md:w-[50%] h-auto">
               <h2 className="text-2xl font-bold mb-4 uppercase text-center text-[#051D41]" aria-label={editingNewsId ? 'Modifier l\'actualité' : 'Ajouter une actualité'}>
                 {editingNewsId ? 'Modifier l\'actualité' : 'Ajouter une actualité'}
               </h2>
@@ -196,7 +198,7 @@ const AddNews = () => {
                   <input
                     type="text"
                     id="news-title"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#051D41]" // Ajouter un focus ring
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#051D41]"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
@@ -209,13 +211,17 @@ const AddNews = () => {
                   <label className="block text-gray-700 font-semibold mb-2" htmlFor="news-description">Description</label>
                   <textarea
                     id="news-description"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#051D41]" // Ajouter un focus ring
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#051D41]"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     required
+                    maxLength={maxDescriptionLength}
                     aria-required="true"
                     placeholder="Entrez la description ici"
                   />
+                  <div className="text-sm text-gray-500 mt-2">
+                    {description.length}/{maxDescriptionLength} caractères utilisés
+                  </div>
                 </div>
 
                 {!editingNewsId && (
@@ -224,28 +230,29 @@ const AddNews = () => {
                     <input
                       type="file"
                       id="news-image"
-                      className="w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#051D41]"
-                      onChange={(e) => setImage(e.target.files[0])}
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#051D41]"
                       accept="image/*"
-                      required={!editingNewsId}
+                      onChange={(e) => setImage(e.target.files[0])}
+                      required
+                      aria-required="true"
                     />
                   </div>
                 )}
 
-                <div className="flex justify-end">
+                <div className="flex justify-between mt-6">
                   <button
                     type="button"
                     onClick={closeModal}
-                    className="bg-gray-400 text-white p-2 rounded mr-2 hover:bg-gray-500"
+                    className="bg-gray-500 text-white px-6 py-2 rounded shadow-md hover:bg-gray-600"
                   >
                     Annuler
                   </button>
                   <button
                     type="submit"
-                    className={`bg-[#051D41] text-white p-2 rounded ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#040D20]'}`} // Ajouter un effet de survol
-                    disabled={loading}
+                    className="bg-[#051D41] uppercase text-[#BE0B0B] font-semibold px-6 py-2 rounded shadow-md hover:bg-[#040D20]"
+                    disabled={loading || description.length > maxDescriptionLength}
                   >
-                    {loading ? 'Chargement...' : 'Enregistrer'}
+                    {loading ? 'En cours...' : editingNewsId ? 'Modifier' : 'Ajouter'}
                   </button>
                 </div>
               </form>
