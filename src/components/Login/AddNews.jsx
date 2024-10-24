@@ -147,7 +147,7 @@ const AddNews = () => {
                 <p>{news.description}</p>
               </div>
               <img src={news.image} alt={news.title} className="w-full h-48 object-cover mt-2 md:mt-0 md:w-64 md:h-48 ml-0 md:ml-4 rounded" />
-              <div className="flex flex-col items-center justify-center md:flex-row md:items-start md:ml-2 mt-2 md:mt-0">
+              <div className="flex flex-col items-center justify-center mt-4 md:mt-0">
                 <button
                   onClick={() => openModal(news.id)}
                   className="bg-[#051D41] uppercase font-semibold text-[#BE0B0B] p-2 m-2 rounded shadow-md hover:bg-[#040D20]"
@@ -230,27 +230,26 @@ const AddNews = () => {
                     <input
                       type="file"
                       id="news-image"
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#051D41]"
-                      accept="image/*"
+                      className="w-full p-3 border border-gray-300 rounded-lg"
                       onChange={(e) => setImage(e.target.files[0])}
-                      required
-                      aria-required="true"
+                      required={!editingNewsId}
+                      aria-required={!editingNewsId ? 'true' : 'false'}
                     />
                   </div>
                 )}
 
-                <div className="flex justify-between mt-6">
+                <div className="flex justify-end">
                   <button
                     type="button"
+                    className="bg-gray-500 text-white p-2 rounded mr-2"
                     onClick={closeModal}
-                    className="bg-gray-500 text-white px-6 py-2 rounded shadow-md hover:bg-gray-600"
                   >
                     Annuler
                   </button>
                   <button
                     type="submit"
-                    className="bg-[#051D41] uppercase text-[#BE0B0B] font-semibold px-6 py-2 rounded shadow-md hover:bg-[#040D20]"
-                    disabled={loading || description.length > maxDescriptionLength}
+                    className="bg-[#051D41] text-white p-3 rounded shadow-lg hover:bg-[#040D20]"
+                    disabled={loading}
                   >
                     {loading ? 'En cours...' : editingNewsId ? 'Modifier' : 'Ajouter'}
                   </button>
