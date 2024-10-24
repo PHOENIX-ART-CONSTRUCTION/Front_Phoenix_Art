@@ -33,7 +33,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section id='contact' className="w-full h-screen bg-gray-100 flex items-center justify-center py-10 my-25">
+    <section id='contact' className="w-full bg-gray-100 flex items-center justify-center py-10">
       <div className="max-w-7xl w-full h-auto grid grid-cols-1 lg:grid-cols-2 gap-6 bg-[#051D41] text-[#be0b0b] shadow-lg rounded-lg overflow-hidden">
         {/* Formulaire de contact */}
         <motion.div
@@ -53,7 +53,7 @@ const ContactForm = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="border p-2  w-full text-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#be0b0b]"
+                className="border p-2 w-full text-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#be0b0b]"
                 placeholder="Entrez votre nom"
                 required
               />
@@ -80,7 +80,7 @@ const ContactForm = () => {
                 onChange={handleInputChange}
                 className="border p-2 w-full rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-[#be0b0b]"
                 placeholder="Votre message"
-                rows="2"
+                rows="3"
                 required
               ></textarea>
             </div>
@@ -97,12 +97,12 @@ const ContactForm = () => {
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="relative w-full h-[421px] flex mt-2 items-center justify-center"
+          className="relative w-full h-[421px] lg:h-auto flex items-center justify-center"
         >
           <img
             src="/assets/Contact.jpeg"
             alt="Contact"
-            className="w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
+            className="w-[80%] h-[50%] sm:w-[80%] md:w-[80%] sm:h-[40%] md:h-[40%] lg:h-full lg:w-full  object-cover transition-opacity duration-1000 ease-in-out"
           />
         </motion.div>
       </div>
