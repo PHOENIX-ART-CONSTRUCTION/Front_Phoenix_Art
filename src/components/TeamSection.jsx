@@ -53,7 +53,7 @@ const TeamSection = () => {
                       <p className="text-lg text-white text-center font-semibold mb-4">{position}</p>
                       <p className="text-base text-justify text-white">{description}</p>
                     </div>
-                    <div className="w-full md:w-1/2 h-full ml-56">
+                    <div className="w-full md:w-1/2 h-full md:ml-56">
                       <img
                         src={image}
                         alt={`Photo de ${name}, ${position}`}
