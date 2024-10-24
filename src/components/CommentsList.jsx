@@ -37,12 +37,15 @@ const CommentsList = () => {
     e.preventDefault();
     setIsSubmitting(true); // Activer le loader
 
-    // Vérifie que le nom et le message ne sont pas vides
-    if (newComment.name && newComment.message) {
+    // Vérifie que le message n'est pas vide
+    if (newComment.message) {
+      // Utilise "Anonymous" si le nom est vide
+      const nameToSubmit = newComment.name.trim() || 'Anonymous';
+
       try {
         // Envoyer la requête POST au backend pour ajouter un commentaire
         const response = await axios.post(postCommentURL, {
-          name: newComment.name,
+          name: nameToSubmit,
           message: newComment.message,
         });
 
@@ -190,7 +193,8 @@ const CommentsList = () => {
                 <div className="text-right">
                   <button
                     type="submit"
-                    className="px-6 py-2 bg-green-500 text-white font-bold rounded-lg shadow hover:bg-green-600"
+                    className={`px-6 py-2 bg-green-500 text-white font-bold rounded-lg shadow hover:bg-green-600 ${!newComment.message ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    disabled={!newComment.message} // Désactiver le bouton si le message est vide
                   >
                     Envoyer
                   </button>
