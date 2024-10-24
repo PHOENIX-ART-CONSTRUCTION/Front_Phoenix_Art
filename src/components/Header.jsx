@@ -92,7 +92,7 @@ export const Header = ({ data }) => {
           <motion.a
             href="#services"
             className="bg-[#051D41] text-[#FFFFFF] py-3 px-6 md:px-8 rounded-full text-lg font-bold shadow-lg hover:bg-[#0A234B]"
-            tabindex="0"
+            tabIndex="0"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
