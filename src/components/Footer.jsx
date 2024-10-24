@@ -29,7 +29,7 @@ const Footer = () => {
                 <FaFacebookF />
               </a>
               <a
-                href="https://www.linkedin.com/"
+                href="https://www.linkedin.com/in/heritiana-andriamanjato-363318135/?originalSubdomain=m"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-gray-800 rounded-full hover:bg-gray-600 transition duration-300"
