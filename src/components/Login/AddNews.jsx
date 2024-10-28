@@ -116,14 +116,14 @@ const AddNews = () => {
 
       <main className="flex-grow p-8">
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold text-center uppercase" aria-label="Actualités">
+          <h1 className="text-3xl font-bold text-center uppercase mr-2 " aria-label="Actualités">
             Actualités
           </h1>
           <button
             onClick={() => openModal()}
             className="bg-[#051D41] uppercase font-bold text-[#BE0B0B] p-3 rounded shadow-md hover:bg-[#040D20]"
           >
-            Ajouter une actualité
+            Ajout d'actualité
           </button>
         </div>
 
@@ -188,7 +188,7 @@ const AddNews = () => {
         {isModalOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
             <div className="bg-white p-8 rounded-lg shadow-lg w-[90%] md:w-[50%] h-auto">
-              <h2 className="text-2xl font-bold mb-4 uppercase text-center text-[#051D41]" aria-label={editingNewsId ? 'Modifier l\'actualité' : 'Ajouter une actualité'}>
+              <h2 className="text-2xl font-bold mb-4 uppercase text-center  text-[#051D41]" aria-label={editingNewsId ? 'Modifier l\'actualité' : 'Ajouter une actualité'}>
                 {editingNewsId ? 'Modifier l\'actualité' : 'Ajouter une actualité'}
               </h2>
 
