@@ -181,13 +181,13 @@ const ManageComments = () => {
             <div className="flex justify-end space-x-2 flex-col sm:flex-row">
               <button
                 onClick={() => handleUpdateComment(editingCommentId)}
-                className="bg-[#267a05] text-white px-4 py-2 rounded-lg w-full sm:w-auto"
+                className="bg-[#267a05] text-white px-2 py-2 rounded-lg w-full sm:w-auto"
               >
                 Enregistrer
               </button>
               <button
                 onClick={handleCloseModal}
-                className="bg-[#BE0B0B] text-white px-4 py-2 rounded-lg w-full sm:w-auto"
+                className="bg-[#BE0B0B] text-white px-2 py-2 mt-2  rounded-lg w-full sm:w-auto"
               >
                 Annuler
               </button>
